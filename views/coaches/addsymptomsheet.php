@@ -1,7 +1,11 @@
 <form method="POST" action="">
     <div class="row">
+        <br/>
         <div class="col-lg-4">
                 Name: <?php echo $fullname; ?>   
+        </div>
+        <div class="col-lg-4">
+                Date: <input type='date' id='createddate' name='createddate'  value='<?php echo date("Y-m-d"); ?>'><br/> 
         </div>
     </div>
     <br/>
