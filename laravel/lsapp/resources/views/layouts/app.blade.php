@@ -74,6 +74,10 @@
 
         <main class="py-4">
             @yield('content')
+
+
+        @include('inc.sidebar')
+
         </main>
     </div>
 </body>
