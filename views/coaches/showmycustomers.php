@@ -43,12 +43,8 @@
                             echo '<td><a href="' . $GLOBALS['BASE_URL'] . 'coaches/deletecustomer/' . $customer->id .  '"><img alt="Delete Customer" src="' .  $GLOBALS['BASE_URL'] . 'images/cancel.png" height="25" width="25">Delete </a></td>';
                             echo '<td><a href="' . $GLOBALS['BASE_URL'] . 'coaches/selectcustomerhtma/' . $customer->id .  '"><img alt="Edit HTMA" src="' .  $GLOBALS['BASE_URL'] . 'images/htma.png" height="25" width="25">Edit HTMA </a></td>';
                             echo '<td><a href="' . $GLOBALS['BASE_URL'] . 'coaches/addcustomerhtma/' . $customer->id .  '"><img alt="Add HTMA" src="' .  $GLOBALS['BASE_URL'] . 'images/plus.png" height="25" width="25">Add HTMA </a></td>';
-
                             echo '<td><a href="' . $GLOBALS['BASE_URL'] . 'coaches/selectsymptomsheet/' . $customer->id .  '"><img alt="Edit Symptom Sheet" src="' .  $GLOBALS['BASE_URL'] . 'images/symptomsheet-view.png" height="25" width="25">Edit Symptom Sheet </a></td>';
                             echo '<td><a href="' . $GLOBALS['BASE_URL'] . 'coaches/addsymptomsheet/' . $customer->id .  '"><img alt="Add Symptom Sheet" src="' .  $GLOBALS['BASE_URL'] . 'images/symptomsheet-add.png" height="25" width="25">Add Symptom Sheet </a></td>';
-
-
-
                             echo '</tr>';
                         }
 
