@@ -227,15 +227,47 @@
                         <li>
                             <a href="<?php echo $GLOBALS['BASE_URL'] ?>">Home</a>
                         </li>
-                        <li>
-                            <a href="<?php echo $GLOBALS['BASE_URL'] . 'users/login'; ?> ">Login</a>
-                        </li>
-                        <li>
-                            <a href="<?php echo $GLOBALS['BASE_URL'] . 'users/logout'; ?> ">Logout</a>
-                        </li>
-                        <li>
-                            <a href="<?php echo $GLOBALS['BASE_URL'] . 'users/register'; ?> ">Register</a>
-                        </li>
+                        <?php
+                            if(isset($_SESSION['User']))
+                            {//user is logged in ?>
+                                <li>
+                                    <a href="<?php echo $GLOBALS['BASE_URL'] . 'users/logout'; ?> ">Logout</a>
+                                </li>
+                         <?php
+                            }
+                            else
+                            {
+                        ?>
+                            <li>
+                                <a href="<?php echo $GLOBALS['BASE_URL'] . 'users/login'; ?> ">Login</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo $GLOBALS['BASE_URL'] . 'users/register'; ?> ">Register</a>
+                            </li>
+                        <?php
+                            }
+                        ?>
+                        
+
+
+
+                        <?php
+                            if(isset($_SESSION['UserRoles']))
+                            {
+
+                                $roles = [];
+                                $Curr_Roles = unserialize($_SESSION['UserRoles']);
+                                foreach($Curr_Roles as $role)
+                                {
+                                    $role->name;
+                                    array_push($roles,$role->name);
+                                } 
+                                if(in_array('Customer',$roles))
+                                {    
+                        ?>
+
+
+
                         
                         <li class="active">
                         <a href="#"><i class="fa fa-files-o fa-fw"></i>Customer Pages<span class="fa arrow"></span></a>
@@ -265,6 +297,13 @@
                             </ul>
                         </li>
 
+                        <?php
+                            }
+                            if(in_array('Coach',$roles))
+                            {                                
+                        ?>    
+
+
                         <li class="active">
                             <a href="#"><i class="fa fa-files-o fa-fw"></i>Coach Pages<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
@@ -283,6 +322,11 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
+                        <?php
+                            }
+                        }
+                        ?>    
+
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->

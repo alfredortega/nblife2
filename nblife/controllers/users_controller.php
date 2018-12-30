@@ -20,8 +20,8 @@
 						$userrolesSer = serialize($Curr_Roles);
 						$_SESSION['User'] = $userSer;
 						$_SESSION['UserRoles'] = $userrolesSer;
-
-						require_once('views/pages/dashboard.php');
+						$url = '/';
+						echo'<META HTTP-EQUIV=REFRESH CONTENT="1; '.$url.'">';
 					}
 					else
 					{

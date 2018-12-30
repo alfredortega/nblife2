@@ -3,7 +3,9 @@
 	include ('inc/rb.php');
 	
 	R::setup( $GLOBALS['DB'], $GLOBALS['DBUSER'], $GLOBALS['DBPASSWORD'] );
-//	R::freeze(true);
+
+/**	
+	R::freeze(true);
 	$cust = R::load('customer',1);
 	$symptomsheet=r::dispense('symptomsheet');
 //	$symptomsheet-> = 'P';
@@ -191,7 +193,7 @@
 
 
 
-/**
+
 	$cust = R::load('customer',1);
 	$htma = R::dispense('htmaresult');
 	
@@ -386,4 +388,13 @@
 	
 	
 */	
+
+$users = R::findAll('user');
+$password = 'rmn109NIV';
+$enc = crypt($password,$GLOBALS['KEY']);
+foreach($users as $user)
+{
+	$user->password = $enc;
+	R::store($user);
+}
 ?>

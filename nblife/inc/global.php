@@ -2,6 +2,7 @@
 date_default_timezone_set('America/Chicago');    
 //$GLOBALS['BASE_URL'] = 'http://192.168.1.135/';
 $GLOBALS['BASE_URL'] = 'http://nblife/';
+//$GLOBALS['BASE_URL'] = 'https://nblife-alfredortegaiii28764.codeanyapp.com/';
 
 $GLOBALS['KEY'] = '$6$rounds=5000$B@SeB@ll9675ChBrn)pepa$';
 $GLOBALS['DB']= 'mysql:host=localhost;dbname=nblife';

@@ -19,8 +19,7 @@
                 foreach($htmaresults as $htmaresult)
                 {
                     echo '<tr>';
-                    echo '<td><a href="' . $GLOBALS['BASE_URL'] . 'customers/htmaataglance/' .  '"><img alt="View HTMA" src="' .  $GLOBALS['BASE_URL'] . 'images/view.png" height="25" width="25">View</a></td>';
-//                    echo '<td><a href="' . $GLOBALS['BASE_URL'] . 'customers/htmaataglance/' . $htmaresult->id .  '/"><img alt="View HTMA" src="' .  $GLOBALS['BASE_URL'] . 'images/view.png" height="25" width="25">View</a></td>';
+                    echo '<td><a href="' . $GLOBALS['BASE_URL'] . 'customers/htmaataglance/' . $htmaresult->id .  '/"><img alt="View HTMA" src="' .  $GLOBALS['BASE_URL'] . 'images/view.png" height="25" width="25">View</a></td>';
                     echo '<td>' . $htmaresult->labnumber .  '</td>';
                     echo '<td>' . $htmaresult->labdate .  '</td>';
                     echo '</tr>';

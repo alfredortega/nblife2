@@ -23,11 +23,9 @@ require_once('models/htmaratiocalculator.php');
     {
       try
       {
-        $queries = array();
-        parse_str($_SERVER['QUERY_STRING'],$queries);
-        $cid = $queries['id'];
-        $customer = R::load('customer',$cid);
-        $fullname = $customer->lastname . ', ' . $customer->firstname . ' ' . $customer->middlename;
+        $user = unserialize($_SESSION['User']);
+        $customer = R::findOne('customer',$user->id);
+        $cid = $customer->id;
         $htmaresults = HTMA::findAllByCustomerId($cid);
         require_once('views/customers/selecthtma.php');
       }
