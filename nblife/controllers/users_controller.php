@@ -1,4 +1,5 @@
 <?php
+	require_once('models/customer.php');
 
 	class UsersController 
 	{
@@ -84,7 +85,8 @@
 			{
 				if(isset($_POST['Submit']))
 				{
-					$userId = $_SESSION['userID'];
+					$user = $_SESSION['User'];
+					$userId = $user->id; 
 					$password = $_POST['password'];
 					$confpassword = $_POST['confpassword'];
 					User::changepassword($userId,$password,$confpassword);
@@ -93,7 +95,7 @@
 				}
 				else
 				{
-					if(isset($_SESSION['UserId']))
+					if(isset($_SESSION['User']))
 					{
 						require_once('views/users/changepassword.php');
 					}
@@ -115,6 +117,51 @@
 				require_once('views/message.php');		
 			}
 
+		}
+
+		public function editprofile()
+		{
+			try
+			{
+			  $queries = array();
+			  parse_str($_SERVER['QUERY_STRING'],$queries);
+			  $id = $queries['id'];
+		
+			  if(isset($_POST['Submit'])) //update customer record
+			  {
+				$dateofbirth = $_POST['dateofbirth'];
+				$salutation = $_POST['salutation'];
+				$gender = $_POST['gender'];
+				$firstname = $_POST['firstname'];
+				$middlename = $_POST['middlename'];
+				$lastname = $_POST['lastname']; 
+				$streetaddress = $_POST['streetaddress']; 
+				$streetaddress2 = $_POST['streetaddress2']; 
+				$city = $_POST['city']; 
+				$state = $_POST['state']; 
+				$zipcode = $_POST['zipcode'];
+				$homephone = $_POST['homephone'];
+				$workphone = $_POST['workphone'];
+				$height = $_POST['height'];
+				$weight = $_POST['weight'];
+				$customer = Customer::updateCustomer($id,$dateofbirth, $salutation, $gender, $firstname, $middlename, $lastname, $streetaddress, $streetaddress2, $city, $state, $zipcode, $homephone, $workphone, $height, $weight);
+				$messageType = 'success';
+				$message = "Your profile has been successfully updated!";
+				require_once('views/message.php');
+	  
+			  }
+			  else //load customer's record
+			  {
+				$customer = Customer::findByCustomerId($id);
+				require_once('views/users/editprofile.php');
+			  }
+	  
+			}
+			catch(Exception $err)
+			{
+	  
+			}
+	  
 		}
 		
 }

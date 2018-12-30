@@ -26,7 +26,7 @@
 
   // we're adding an entry for the new controller and its actions
   $controllers = array('pages' => ['aboutus','index', 'lifestyleataglance', 'error','faq','secretsauce','resources','dashboard'],
-                       'users' => ['logout','login','register','changepassword'],
+                       'users' => ['logout','login','register','changepassword','editprofile'],
                        'coaches' => ['index','showmycustomers','showallcustomers','addcustomer','editcustomer','deletecustomer','selectcustomerhtma','addcustomerhtma','editcustomerhtma','deletecustomerhtma','viewsymptomsheet','deletesymptomsheet','selectsymptomsheet','addsymptomsheet','editsymptomsheet'],                            
                        'customers' => ['htmaataglance','index','selecthtma']
                        );

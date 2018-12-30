@@ -196,12 +196,44 @@
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <?php
+                            if(isset($_SESSION['User']))
+                            {//user is logged in ?>
+                                <?php
+                                    $user = unserialize($_SESSION['User']);
+                                    $userid = $user->id;
+                                    $customer = R::findOne('customer',$userid);
+                                    $customerid = $customer->id;
+
+                                ?>
+                                <li><a href="<?php echo $GLOBALS['BASE_URL'] . 'users/editprofile/' . $customerid; ?>"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                                </li>
+                                <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                                </li>
+                                <li class="divider"></li>
+
+                                <li>
+                                    <a href="<?php echo $GLOBALS['BASE_URL'] . 'users/changepassword'; ?>"><i class="glyphicon glyphicon-user"></i>Change Password</a>
+                                </li>
+
+                                <li><a href="<?php echo $GLOBALS['BASE_URL'] . 'users/logout'; ?> "><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>
+
+                            <?php
+                            }
+                            else
+                            {
+                        ?>
+                            <li>
+                                <a href="<?php echo $GLOBALS['BASE_URL'] . 'users/login'; ?> ">Login</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo $GLOBALS['BASE_URL'] . 'users/register'; ?> ">Register</a>
+                            </li>
+                        <?php
+                            }
+                        ?>
+
+
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -231,8 +263,12 @@
                             if(isset($_SESSION['User']))
                             {//user is logged in ?>
                                 <li>
-                                    <a href="<?php echo $GLOBALS['BASE_URL'] . 'users/logout'; ?> ">Logout</a>
+                                    <a href="<?php echo $GLOBALS['BASE_URL'] . 'users/logout'; ?>">Logout</a>
                                 </li>
+                                <li>
+                                    <a href="<?php echo $GLOBALS['BASE_URL'] . 'users/changepassword'; ?>">Change Password</a>
+                                </li>
+
                          <?php
                             }
                             else

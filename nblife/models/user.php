@@ -144,9 +144,5 @@ class User
 		}
 	}
 
-
-
-
-
 }//end user
 	?>

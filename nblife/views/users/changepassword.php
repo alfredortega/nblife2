@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Change Passwor</h1>
+        <h1 class="page-header">Change Password</h1>
     </div>
     <!-- /.col-lg-12 -->
 </div>
@@ -22,9 +22,15 @@
         </div>      
         <br/>
         <div class="row">
-            <div class="col-lg-4">
-                <input type="submit" class="btn btn-outline btn-primary" value="Submit" id="Submit" name="Submit" />
-            </div>            
+        <div class="row">
+            <div class="col-md-2">
+                <input name="Submit" id="Submit" value="Update" class="btn btn-lg btn-warning btn-block" type="submit">
+            </div>
+
+            <div class="col-md-2">
+                <input value="Cancel" class="btn btn-lg btn-primary btn-block" onclick="window.history.go(-1); return false;">
+            </div>
+
         </div>    
     </div>  
 </form>    

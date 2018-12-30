@@ -51,9 +51,26 @@
       echo 'read a message';    
     }
 
-    public static function update()
+    public static function updateCustomer($id,$dateofbirth, $salutation, $gender, $firstname, $middlename, $lastname, $streetaddress, $streetaddress2, $city, $state, $zipcode, $homephone, $workphone, $height, $weight)
     {
-      echo 'updating my own info as a customer';
+        $customer = R::load('customer',$id);
+        $customer->dateofbirth =$dateofbirth;
+        $customer->salutation = $salutation;
+        $customer->gender = $gender;
+        $customer->firstname = $firstname;
+        $customer->middlename = $middlename;
+        $customer->lastname = $lastname;
+        $customer->streetaddress = $streetaddress;
+        $customer->streetaddress2 = $streetaddress2;
+        $customer->city = $city;
+        $customer->state = $state;
+        $customer->zipcode = $zipcode;
+        $customer->homephone = $homephone;
+        $customer->workphone = $workphone;
+        $customer->height = $height;
+        $customer->weight = $weight;
+        R::store($customer);     
+        return $customer; 
     }
 
 }
