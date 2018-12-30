@@ -8,6 +8,11 @@
 
 <div class="row">
     <div class="col-lg-12">
+        <a alt="View My Customers" href="<?php echo $GLOBALS['BASE_URL'] . 'coaches/showmycustomers'  ?> ">
+            <img  height="25" width="25" alt="" src="<?php echo $GLOBALS['BASE_URL'] . 'images/group.png' ?>">View My Customers
+        </a>
+        &nbsp;&nbsp;&nbsp;        
+
         <a alt="Add Customer" href="<?php echo $GLOBALS['BASE_URL'] . 'coaches/addcustomerhtma/' . $cid; ?> ">
             <img  height="25" width="25" alt="" src="<?php echo $GLOBALS['BASE_URL'] . 'images/person.png' ?>">Add HTMA
         </a>

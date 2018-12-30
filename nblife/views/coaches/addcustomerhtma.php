@@ -261,6 +261,9 @@
                     <div class="col-lg-2">
                         <input name="Submit" id="Submit" value="Submit" class="btn btn-lg btn-success btn-block" type="submit">
                     </div>
+                    <div class="col-lg-2">
+                        <input value="Cancel" class="btn btn-lg btn-primary btn-block" onclick="window.history.go(-1); return false;">
+                    </div>    
                 </div>
 
             </form>

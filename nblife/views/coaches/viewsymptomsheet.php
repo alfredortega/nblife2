@@ -378,7 +378,7 @@
 
     <div class="row">
         <div class="col-lg-2">
-            <input name="Submit" id="Submit" value="Submit" class="btn btn-lg btn-success btn-block" type="submit">
+            <input value="Back" class="btn btn-lg btn-primary btn-block" onclick="window.history.go(-1); return false;">
         </div>
     </div>
 
