@@ -85,7 +85,7 @@
 			{
 				if(isset($_POST['Submit']))
 				{
-					$user = $_SESSION['User'];
+					$user = unserialize($_SESSION['User']);
 					$userId = $user->id; 
 					$password = $_POST['password'];
 					$confpassword = $_POST['confpassword'];
