@@ -208,7 +208,7 @@
                                 ?>
                                 <li><a href="<?php echo $GLOBALS['BASE_URL'] . 'users/editprofile/' . $customerid; ?>"><i class="fa fa-user fa-fw"></i> User Profile</a>
                                 </li>
-                                <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                                <li><a href="<?php echo $GLOBALS['BASE_URL'] . 'users/settings/' . $customerid; ?>"><i class="fa fa-gear fa-fw"></i> Settings</a>
                                 </li>
                                 <li class="divider"></li>
 

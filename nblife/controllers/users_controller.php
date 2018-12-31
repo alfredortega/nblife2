@@ -164,5 +164,19 @@
 	  
 		}
 		
-}
+		public function settings()
+		{
+			if(isset($_POST['Submit'])) //button id
+			{
+				require_once('views/users/settings.php');
+			}
+			else
+			{
+				require_once('views/users/settings.php');
+			}
+
+		}
+
+
+	}
 ?>

@@ -32,12 +32,12 @@
       require_once ('views/pages/resources.php');
     }
 
-    public function dashboard()
+/*     public function dashboard()
     {
       $user = unserialize($_SESSION['User']);
       require_once ('views/pages/dashboard.php');
     }
-
+ */
 
   }
 ?>
