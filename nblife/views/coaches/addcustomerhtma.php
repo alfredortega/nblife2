@@ -248,7 +248,7 @@
                     </div>
                     <!-- /.col-lg-2 -->
                     <div class="col-lg-2">
-                        <input type="number" min="0" step=".001"  name="boron" required>
+                        <input type="number" min="0" step=".001"  name="boron" required value="0">
                     </div>
                     <!-- /.col-lg-2 -->
                 </div>

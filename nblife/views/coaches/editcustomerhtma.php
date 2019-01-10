@@ -274,58 +274,58 @@
 
 
             <div class="table-responsive">
-                <table class="table table-striped">
+                <table class="table table-striped" style="width:625px">
                     <thead>
                         <tr>
-                            <th>Mineral Ratio</th>
-                            <th>Ideal Ratio</th>
-                            <th>Current Ratio</th>
-                            <th>% of Ideal</th>
-                            <th>Previous Ratio</th>
+                            <th style="width:125px">Mineral Ratio</th>
+                            <th style="width:125px;text-align:right;">Ideal Ratio</th>
+                            <th style="width:125px;text-align:right;">Current Ratio</th>
+                            <th style="width:125px;text-align:right;">% of Ideal</th>
+                            <th style="width:125px;text-align:right;">Previous Ratio</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>CA/MG</td>
-                            <td><?php echo $htmaratiocalculator->calciumdividedbymagnessiumidealratio; ?></td>
-                            <td><?php echo $htmaratiocalculator->calciumdividedbymagnessium; ?></td>
-                            <td><?php echo $htmaratiocalculator->calciumdividedbymagnessiumpercentage; ?></td>
-                            <td></td>
+                            <td >CA/MG</td>
+                            <td align="right"><?php echo number_format((float)$htmaratiocalculator->calciumdividedbymagnessiumidealratio,2,'.',''); ?></td>
+                            <td align="right"><?php echo $htmaratiocalculator->calciumdividedbymagnessium; ?></td>
+                            <td align="right"><?php echo $htmaratiocalculator->calciumdividedbymagnessiumpercentage; ?></td>
+                            <td align="right"></td>
                         </tr>
                         <tr>
-                            <td>CA/K</td>
-                            <td><?php echo $htmaratiocalculator->calciumdividedbypotassiumidealratio; ?></td>
-                            <td><?php echo $htmaratiocalculator->calciumdividedbypotassium; ?></td>
-                            <td><?php echo $htmaratiocalculator->calciumdividedbypotassiumpercentage; ?></td>
-                            <td></td>
+                            <td >CA/K</td>
+                            <td align="right"><?php echo number_format((float)$htmaratiocalculator->calciumdividedbypotassiumidealratio,2,'.',''); ?></td>
+                            <td align="right"><?php echo $htmaratiocalculator->calciumdividedbypotassium; ?></td>
+                            <td align="right"><?php echo $htmaratiocalculator->calciumdividedbypotassiumpercentage; ?></td>
+                            <td align="right"></td>
                         </tr>
                         <tr>
-                            <td>NA/MG</td>
-                            <td><?php echo $htmaratiocalculator->sodiumdividedbymagnesiumidealratio; ?></td>
-                            <td><?php echo $htmaratiocalculator->sodiumdividedbymagnesium; ?></td>
-                            <td><?php echo $htmaratiocalculator->sodiumdividedbymagnesiumpercentage; ?></td>
-                            <td></td>
+                            <td >NA/MG</td>
+                            <td align="right"><?php echo number_format((float)$htmaratiocalculator->sodiumdividedbymagnesiumidealratio,2,'.',''); ?></td>
+                            <td align="right"><?php echo $htmaratiocalculator->sodiumdividedbymagnesium; ?></td>
+                            <td align="right"><?php echo $htmaratiocalculator->sodiumdividedbymagnesiumpercentage; ?></td>
+                            <td align="right"></td>
                         </tr>
                         <tr>
-                            <td>NA/K</td>
-                            <td><?php echo $htmaratiocalculator->sodiumdividedbypotassiumidealratio; ?></td>
-                            <td><?php echo $htmaratiocalculator->sodiumdividedbypotassium; ?></td>
-                            <td><?php echo $htmaratiocalculator->sodiumdividedbypotassiumpercentage; ?></td>
-                            <td></td>
+                            <td >NA/K</td>
+                            <td align="right"><?php echo number_format((float)$htmaratiocalculator->sodiumdividedbypotassiumidealratio,2,'.',''); ?></td>
+                            <td align="right"><?php echo $htmaratiocalculator->sodiumdividedbypotassium; ?></td>
+                            <td align="right"><?php echo $htmaratiocalculator->sodiumdividedbypotassiumpercentage; ?></td>
+                            <td align="right"></td>
                         </tr>
                         <tr>
-                            <td>ZN/CU</td>
-                            <td><?php echo $htmaratiocalculator->zincividedbycopperidealratio; ?></td>
-                            <td><?php echo $htmaratiocalculator->zincividedbycopper; ?></td>
-                            <td><?php echo $htmaratiocalculator->zincividedbycopperpercentage; ?></td>
-                            <td></td>
+                            <td >ZN/CU</td>
+                            <td align="right"><?php echo number_format((float)$htmaratiocalculator->zincividedbycopperidealratio,2,'.',''); ?></td>
+                            <td align="right"><?php echo $htmaratiocalculator->zincividedbycopper; ?></td>
+                            <td align="right"><?php echo $htmaratiocalculator->zincividedbycopperpercentage; ?></td>
+                            <td align="right"></td>
                         </tr>
                         <tr>
-                            <td>CA/P</td>
-                            <td><?php echo $htmaratiocalculator->calciumdividedbyphosphorusidealratio; ?></td>
-                            <td><?php echo $htmaratiocalculator->calciumdividedbyphosphorus; ?></td>
-                            <td><?php echo $htmaratiocalculator->calciumdividedbyphosphoruspercentage; ?></td>
-                            <td></td>
+                            <td >CA/P</td>
+                            <td align="right"><?php echo number_format((float)$htmaratiocalculator->calciumdividedbyphosphorusidealratio,2,'.',''); ?></td>
+                            <td align="right"><?php echo $htmaratiocalculator->calciumdividedbyphosphorus; ?></td>
+                            <td align="right"><?php echo $htmaratiocalculator->calciumdividedbyphosphoruspercentage; ?></td>
+                            <td align="right"></td>
                         </tr>
                     </tbody>
                 </table>

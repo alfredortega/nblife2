@@ -106,7 +106,7 @@
             <input type='checkbox' id='hungerexcessive' name='hungerexcessive'>Hunger , Excessive<br/>
             <input type='checkbox' id='hungernoappetite' name='hungernoappetite'>Hunger, No Appetite<br/>
             <input type='checkbox' id='irritablebeforemeals' name='irritablebeforemeals'>Irritable Before Meals<br/>
-            <input type='checkbox' id='sugarreactions' name='sugarreactions'>Sugar Ractions<br/>
+            <input type='checkbox' id='sugarreactions' name='sugarreactions'>Sugar Reactions<br/>
             <input type='checkbox' id='tendtogainweight' name='tendtogainweight'>Tend To Gain Weight<br/>
             <input type='checkbox' id='tendtoloseweight' name='tendtoloseweight'>Tend To Lose Weight<br/>
             <br/>

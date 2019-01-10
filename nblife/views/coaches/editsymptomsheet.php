@@ -102,7 +102,7 @@
             <input type='checkbox' id='hungerexcessive' name='hungerexcessive' <?php echo ($symptomsheet->hungerexcessive == 1) ? "checked='checked'" : "" ;  ?>>Hunger , Excessive<br/>
             <input type='checkbox' id='hungernoappetite' name='hungernoappetite' <?php echo ($symptomsheet->hungernoappetite == 1) ? "checked='checked'" : "" ;  ?>>Hunger, No Appetite<br/>
             <input type='checkbox' id='irritablebeforemeals' name='irritablebeforemeals' <?php echo ($symptomsheet->irritablebeforemeals == 1) ? "checked='checked'" : "" ;  ?>>Irritable Before Meals<br/>
-            <input type='checkbox' id='sugarreactions' name='sugarreactions' <?php echo ($symptomsheet->sugarreactions == 1) ? "checked='checked'" : "" ;  ?>>Sugar Ractions<br/>
+            <input type='checkbox' id='sugarreactions' name='sugarreactions' <?php echo ($symptomsheet->sugarreactions == 1) ? "checked='checked'" : "" ;  ?>>Sugar Reactions<br/>
             <input type='checkbox' id='tendtogainweight' name='tendtogainweight' <?php echo ($symptomsheet->tendtogainweight == 1) ? "checked='checked'" : "" ;  ?>>Tend To Gain Weight<br/>
             <input type='checkbox' id='tendtoloseweight' name='tendtoloseweight' <?php echo ($symptomsheet->tendtoloseweight == 1) ? "checked='checked'" : "" ;  ?>>Tend To Lose Weight<br/>
             <br/>
