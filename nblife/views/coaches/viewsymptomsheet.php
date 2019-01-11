@@ -147,7 +147,7 @@
             &nbsp;&nbsp;&nbsp;<input disabled type='checkbox' id='infectionskidney' name='infectionskidney' <?php echo ($symptomsheet->infectionskidney == 1) ? "checked='checked'" : "" ;  ?>>Kidney<br/>
             &nbsp;&nbsp;&nbsp;<input disabled type='checkbox' id='infectionsfungalcandida' name='infectionsfungalcandida' <?php echo ($symptomsheet->infectionsfungalcandida == 1) ? "checked='checked'" : "" ;  ?>>Fungal/Candida<br/>
             &nbsp;&nbsp;&nbsp;<input disabled type='checkbox' id='infectionsfungalyeast' name='infectionsfungalyeast' <?php echo ($symptomsheet->infectionsfungalyeast == 1) ? "checked='checked'" : "" ;  ?>>Fungal/Yeast<br/>
-            &nbsp;&nbsp;&nbsp;<input disabled type='checkbox' id='infectionsviruses' name='infectionsviruses' <?php echo ($symptomsheet->infectionsviruses == 1) ? "checked='checked'" : "" ;  ?>>Ciruses<br/>
+            &nbsp;&nbsp;&nbsp;<input disabled type='checkbox' id='infectionsviruses' name='infectionsviruses' <?php echo ($symptomsheet->infectionsviruses == 1) ? "checked='checked'" : "" ;  ?>>Viruses<br/>
             <br/>
             <input disabled type='checkbox' id='hairloss' name='hairloss' <?php echo ($symptomsheet->hairloss == 1) ? "checked='checked'" : "" ;  ?>>Hairloss<br/>
             <input disabled type='checkbox' id='hives' name='hives' <?php echo ($symptomsheet->hives == 1) ? "checked='checked'" : "" ;  ?>>Hives<br/>

@@ -1,6 +1,5 @@
 <?php
 date_default_timezone_set('America/Chicago');    
-//$GLOBALS['BASE_URL'] = 'http://192.168.1.135/';
 $GLOBALS['BASE_URL'] = 'http://nblife/';
 //$GLOBALS['BASE_URL'] = 'https://nblife-alfredortegaiii28764.codeanyapp.com/';
 

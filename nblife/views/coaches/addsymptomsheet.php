@@ -152,7 +152,7 @@
             &nbsp;&nbsp;&nbsp;<input type='checkbox' id='infectionskidney' name='infectionskidney'>Kidney<br/>
             &nbsp;&nbsp;&nbsp;<input type='checkbox' id='infectionsfungalcandida' name='infectionsfungalcandida'>Fungal/Candida<br/>
             &nbsp;&nbsp;&nbsp;<input type='checkbox' id='infectionsfungalyeast' name='infectionsfungalyeast'>Fungal/Yeast<br/>
-            &nbsp;&nbsp;&nbsp;<input type='checkbox' id='infectionsviruses' name='infectionsviruses'>Ciruses<br/>
+            &nbsp;&nbsp;&nbsp;<input type='checkbox' id='infectionsviruses' name='infectionsviruses'>Viruses<br/>
             <br/>
             <input type='checkbox' id='hairloss' name='hairloss'>Hairloss<br/>
             <input type='checkbox' id='hives' name='hives'>Hives<br/>
