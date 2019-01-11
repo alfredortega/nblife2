@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>NB Life Customer Portal</title>
+    <title>NB Life Client Portal</title>
 
     <?php include("inc/header.php"); ?>
 

@@ -10,9 +10,9 @@
 	      require_once('models/user.php');
         $controller = new UsersController();
         break;
-      case 'customers':
-        require_once('models/customer.php');
-        $controller = new CustomersController();
+      case 'clients':
+        require_once('models/client.php');
+        $controller = new ClientsController();
         break;
       case 'coaches':
         require_once('models/coach.php');
@@ -27,8 +27,8 @@
   // we're adding an entry for the new controller and its actions
   $controllers = array('pages' => ['aboutus','index', 'lifestyleataglance', 'error','faq','secretsauce','resources','dashboard'],
                        'users' => ['logout','login','register','changepassword','editprofile','settings'],
-                       'coaches' => ['index','showmycustomers','showallcustomers','addcustomer','editcustomer','deletecustomer','selectcustomerhtma','addcustomerhtma','editcustomerhtma','deletecustomerhtma','viewsymptomsheet','deletesymptomsheet','selectsymptomsheet','addsymptomsheet','editsymptomsheet'],                            
-                       'customers' => ['htmaataglance','index','selecthtma']
+                       'coaches' => ['index','showmyclients','showallclients','addclient','editclient','deleteclient','selectclienthtma','addclienthtma','editclienthtma','deleteclienthtma','viewsymptomsheet','deletesymptomsheet','selectsymptomsheet','addsymptomsheet','editsymptomsheet'],                            
+                       'clients' => ['htmaataglance','index','selecthtma']
                        );
   
   

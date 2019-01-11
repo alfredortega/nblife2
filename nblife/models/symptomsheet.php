@@ -7,9 +7,9 @@
             return R::load('symptomsheet',$sid);
         }
 
-        public static function getByCustomerId($customer_id)
+        public static function getByClientId($client_id)
         {
-            return R::getAssoc( "SELECT id, id as recordid, createddate, customer_id FROM `symptomsheet` where customer_id = ?  order by createddate DESC",[$customer_id] );
+            return R::getAssoc( "SELECT id, id as recordid, createddate, client_id FROM `symptomsheet` where client_id = ?  order by createddate DESC",[$client_id] );
         }
 
 
@@ -20,9 +20,9 @@
 
         public static function insert( $cid, $createddate, $acne, $adhd, $alcoholism, $allergieschemical, $allergiesdairy, $allergieseggs, $allergiesfish, $allergiesmold, $allergiesseasonal, $anemia, $anger, $angina, $anxiety, $arteriosclerosis, $asthma, $autism, $bipolar, $bloating, $bloodpressurehigh, $bloodpressurelow, $bodytemperaturecoldinwinter, $bodytemperaturelow, $brainfog, $breastsfibrocystic, $breaststumors, $bronchitis, $bursitis, $cantskipmeals, $cataracts, $cholesterolhigh, $chronicfatigue, $cirrhosis, $colitis, $confusion, $constipationoccasional, $constipationongoing, $cough, $cramps, $cravefats, $cravesaltyfoods, $cravestarches, $cravesweets, $cystsovarian, $delayeddevelopment, $depression, $diabetes1, $diabetes2, $diabetes3, $diarrheaoccasional, $diarrheaongoing, $diverticulitis, $dizziness, $drugaddiction, $dryskin, $dyslexia, $easybruising, $eczema, $emphysema, $excessiveplaqueonteeth, $fatigue, $fibromyalgia, $fissuresanal, $fistulas, $fractures, $gallstones, $gas, $glaucoma, $gout, $graves, $gumdisease, $hairloss, $headachesmigraine, $headachessinus, $headachestension, $heartattack, $heartbeatsskip, $heartpalpitations, $heartraterapid, $hemorrhoids, $hives, $hotflashes, $hungerexcessive, $hungernoappetite, $hyperkinesis, $hyperthyroidism, $hypoglycemia, $hypothyroidism, $impotence, $infectionsbladder, $infectionsfungalcandida, $infectionsfungalyeast, $infectionskidney, $infectionsviruses, $infertility, $inflammation, $irritability, $irritablebeforemeals, $jointpain, $jointstiffness, $kidneystones, $learningdisability, $lyme, $menieresdisease, $menopause, $menstruationdelayedstopped, $mentalretardation, $mindraces, $moodswings, $multiplesclerosis, $musclecramps, $musclepain, $muscleweakness, $neuritis, $neuropathy, $obsessivecompulsive, $osteoarthritis, $osteoporosis, $panicattacks, $papsmearabnormal, $parkinsonsdisease, $periodsheavy, $periodsirregular, $periodslight, $poorcirculation, $poormemory, $postnasaldrip, $premenstrualsyndrome, $prostateproblems, $psoriasis, $rheumatoidarthritis, $schizophrenia, $scleroderma, $seizures, $sensitivetocaffeine, $sensitivetoheat, $sinuscongestion, $slowwoundhealing, $smoking, $stomachpain, $sugarreactions, $tendtogainweight, $tendtoloseweight, $toothdecayfrequentcavities, $triglycerideshigh, $troublesleeping, $tumoractive, $tumorbenign, $tumorcancer, $tumorfatty, $ulcer, $urinationfrequent, $urinationpainful, $vaginalyeastinfections, $waterretention, $tinnitus,$ringinginears)
         {
-            $customer = R::load('customer',$cid);
+            $client = R::load('client',$cid);
             $symptomsheet = R::dispense('symptomsheet');
-            $symptomsheet->customer = $customer;
+            $symptomsheet->client = $client;
             $symptomsheet->createddate = $createddate;
 
             $symptomsheet->acne = $acne;

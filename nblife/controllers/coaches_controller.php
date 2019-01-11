@@ -1,6 +1,6 @@
 <?php
   require_once('models/user.php');
-  require_once('models/customer.php');
+  require_once('models/client.php');
   require_once('models/htma.php');
   require_once('models/htmaratiocalculator.php');
   require_once('models/symptomsheet.php');
@@ -16,17 +16,17 @@
       require_once('views/message.php');
 }
 
-    public function showmycustomers() 
+    public function showmyclients() 
     {
       $user = unserialize($_SESSION['User']);
       $userid = $user->id;
-      $customers = Coach::findCustomersByCoach($userid);
-      require_once('views/coaches/showmycustomers.php');
+      $clients = Coach::findClientsByCoach($userid);
+      require_once('views/coaches/showmyclients.php');
 
 /*       if(isset($_SESSION['User']) & in_array('Coach',$_SESSION['UserRoles'])   )
       {
         $user = $_SESSION['User'];
-        $customers = Coach::findCustomersByCoach($user->id);
+        $clients = Coach::findclientsByCoach($user->id);
         require_once('views/coachs/index.php');
       }
       else
@@ -37,17 +37,17 @@
 				require_once('views/users/login.php');
       }
  */
-    }//end showmycustomers
+    }//end showmyclients
  
-    public function showallcustomers() 
+    public function showallclients() 
     {
-      $customers = Coach::findAllCustomers();
-      require_once('views/coaches/showallcustomers.php');
+      $clients = Coach::findAllClients();
+      require_once('views/coaches/showallclients.php');
 /*       
       if(isset($_SESSION['User']) & in_array('Coach',$_SESSION['UserRoles'])   )
       {
-        $customers = Coach::findAllCustomers();
-        require_once('views/coaches/showAllCustomers.php');
+        $clients = Coach::findAllclients();
+        require_once('views/coaches/showAllclients.php');
       }
       else
       {
@@ -59,7 +59,7 @@
 */
     }
 
-    public function addCustomer()
+    public function addclient()
     {
       if(isset($_POST['Submit']))
       {
@@ -81,22 +81,22 @@
         $workphone = $_POST['workphone'];
         $height = $_POST['height'];
         $weight = $_POST['weight'];
-        $customer = Coach::addCustomer($email, $dateofbirth, $salutation, $gender, $firstname, $middlename, $lastname, $streetaddress, $streetaddress2, $city, $state, $zipcode, $homephone, $workphone, $height, $weight, $userid);
+        $client = Coach::addClient($email, $dateofbirth, $salutation, $gender, $firstname, $middlename, $lastname, $streetaddress, $streetaddress2, $city, $state, $zipcode, $homephone, $workphone, $height, $weight, $userid);
 
         $messageType = 'success';
-        $message = "Customer has been successfully added!";
+        $message = "client has been successfully added!";
         require_once('views/message.php');
 
-        //then redirect to customer symptoms page
+        //then redirect to client symptoms page
       }
       else
       {
-        require_once('views/coaches/addcustomer.php');
+        require_once('views/coaches/addclient.php');
       }
     }
 
 
-    public function editcustomer()
+    public function editclient()
     {
 
 
@@ -106,7 +106,7 @@
         parse_str($_SERVER['QUERY_STRING'],$queries);
         $cid = $queries['id'];
   
-        if(isset($_POST['Submit'])) //update customer record
+        if(isset($_POST['Submit'])) //update client record
         {
           $user = unserialize($_SESSION['User']); //to get the coach's id
           $userid = $user->id;
@@ -125,16 +125,16 @@
           $workphone = $_POST['workphone'];
           $height = $_POST['height'];
           $weight = $_POST['weight'];
-          $customer = Coach::updateCustomer($cid, $dateofbirth, $salutation, $gender, $firstname, $middlename, $lastname, $streetaddress, $streetaddress2, $city, $state, $zipcode, $homephone, $workphone, $height, $weight, $userid);
+          $client = Coach::updateClient($cid, $dateofbirth, $salutation, $gender, $firstname, $middlename, $lastname, $streetaddress, $streetaddress2, $city, $state, $zipcode, $homephone, $workphone, $height, $weight, $userid);
           $messageType = 'success';
-          $message = "Customer has been successfully updated!";
+          $message = "client has been successfully updated!";
           require_once('views/message.php');
 
         }
         else //load custome record
         {
-          $customer = Customer::findByCustomerId($cid);
-          require_once('views/coaches/editcustomer.php');
+          $client = client::findByClientId($cid);
+          require_once('views/coaches/editclient.php');
         }
 
       }
@@ -144,7 +144,7 @@
       }
     }
 
-    public function deleteCustomer()
+    public function deleteclient()
     {
       $queries = array();
       parse_str($_SERVER['QUERY_STRING'],$queries);
@@ -153,18 +153,18 @@
       {
         User::delete($cid);
         $messageType = 'success';
-        $message = "<br/>Customer has been successfully deleted!";
+        $message = "<br/>client has been successfully deleted!";
         require_once('views/message.php');
       }
       else
       {
-        $customer = Customer::findByCustomerId($cid);
-        require_once('views/coaches/deletecustomer.php');
+        $client = client::findByClientId($cid);
+        require_once('views/coaches/deleteclient.php');
       }
     }
 
 
-    public function deleteCustomerhtma()
+    public function deleteclienthtma()
     {
       $queries = array();
       parse_str($_SERVER['QUERY_STRING'],$queries);
@@ -179,22 +179,22 @@
       else
       {
         $htma = HTMA::findByID($htmaid);
-        require_once('views/coaches/deletecustomerhtma.php');
+        require_once('views/coaches/deleteclienthtma.php');
       }
     }
 
 
-    public function selectcustomerhtma()
+    public function selectclienthtma()
     {
       try
       {
         $queries = array();
         parse_str($_SERVER['QUERY_STRING'],$queries);
         $cid = $queries['id'];
-        $customer = R::load('customer',$cid);
-        $fullname = $customer->lastname . ', ' . $customer->firstname . ' ' . $customer->middlename;
-        $htmaresults = HTMA::findAllByCustomerId($cid);
-        require_once('views/coaches/selectcustomerhtma.php');
+        $client = R::load('client',$cid);
+        $fullname = $client->lastname . ', ' . $client->firstname . ' ' . $client->middlename;
+        $htmaresults = HTMA::findAllByClientId($cid);
+        require_once('views/coaches/selectclienthtma.php');
       }
       catch(Exception $err)
       {
@@ -205,7 +205,7 @@
 
     }
 
-    public function addcustomerhtma()
+    public function addclienthtma()
     {
       $queries = array();
       parse_str($_SERVER['QUERY_STRING'],$queries);
@@ -245,7 +245,7 @@
           $boron= $_POST['boron'];
           $htma = HTMA::addhtmaresult($cid,$labnumber,$labdate,$calcium,$magnesium,$sodium,$potassium, $iron,$copper,$manganese,$zinc,$chromium,$selenium,$phosphorus,$lead,$mercury,$cadmium,$arsenic,$aluminum,$nickel,$cobalt,$molybdenum,$lithium,$boron);
           $messageType = 'success';
-          $message = 'HTMA Record successfully added. You can edit/review it by <a href="' . $GLOBALS['BASE_URL'] . 'coaches/editcustomerhtma/' . $htma->id .  '">click here.</a>';
+          $message = 'HTMA Record successfully added. You can edit/review it by <a href="' . $GLOBALS['BASE_URL'] . 'coaches/editclienthtma/' . $htma->id .  '">click here.</a>';
           require_once('views/message.php');
         }
         catch(Exception $err)
@@ -258,16 +258,16 @@
       else
       {
         $today = date("Y-m-d");
-        $customer = R::load('customer',$cid);
-        $fullname = $customer->lastname . ', ' . $customer->firstname . ' ' . $customer->middlename;
-        $age = date_diff(date_create($customer->dateofbirth),date_create($today))->format('%y');
-        $gender = $customer->gender;
+        $client = R::load('client',$cid);
+        $fullname = $client->lastname . ', ' . $client->firstname . ' ' . $client->middlename;
+        $age = date_diff(date_create($client->dateofbirth),date_create($today))->format('%y');
+        $gender = $client->gender;
         $labdate = $today;
-        require_once('views/coaches/addcustomerhtma.php');
+        require_once('views/coaches/addclienthtma.php');
       }
     }
 
-    public function editcustomerhtma()
+    public function editclienthtma()
     {
       $queries = array();
       parse_str($_SERVER['QUERY_STRING'],$queries);
@@ -310,13 +310,13 @@
           $messageType = 'success';
           $message = 'HTMA Record successfully updated';
           $today = date("Y-m-d");
-          $customer = R::load('customer',$htma->customer_id);
-          $fullname = $customer->lastname . ', ' . $customer->firstname . ' ' . $customer->middlename;
-          $age = date_diff(date_create($customer->dateofbirth),date_create($today))->format('%y');
-          $gender = $customer->gender;
+          $client = R::load('client',$htma->client_id);
+          $fullname = $client->lastname . ', ' . $client->firstname . ' ' . $client->middlename;
+          $age = date_diff(date_create($client->dateofbirth),date_create($today))->format('%y');
+          $gender = $client->gender;
           require_once('views/message.php');
           $htmaratiocalculator = new HTMARatioCalculator($htma);
-          require_once('views/coaches/editcustomerhtma.php');
+          require_once('views/coaches/editclienthtma.php');
         }
         catch(Exception $err)
         {
@@ -329,12 +329,12 @@
       {
         $htma =  HTMA::findByID($htmaid);
         $today = date("Y-m-d");
-        $customer = R::load('customer',$htma->customer_id);
-        $fullname = $customer->lastname . ', ' . $customer->firstname . ' ' . $customer->middlename;
-        $age = date_diff(date_create($customer->dateofbirth),date_create($today))->format('%y');
-        $gender = $customer->gender;
+        $client = R::load('client',$htma->client_id);
+        $fullname = $client->lastname . ', ' . $client->firstname . ' ' . $client->middlename;
+        $age = date_diff(date_create($client->dateofbirth),date_create($today))->format('%y');
+        $gender = $client->gender;
         $htmaratiocalculator = new HTMARatioCalculator($htma);
-        require_once('views/coaches/editcustomerhtma.php');
+        require_once('views/coaches/editclienthtma.php');
       }      
     }
 
@@ -344,9 +344,9 @@
       parse_str($_SERVER['QUERY_STRING'],$queries);
       $sid = $queries['id'];
       $symptomsheet = SymptomSheet::getById($sid);
-      $customer = Customer::findByCustomerId($symptomsheet->customer_id);
-      $fullname = $customer->lastname . ', ' . $customer->firstname . ' ' . $customer->middlename;
-      $gender = $customer->gender;
+      $client = client::findByClientId($symptomsheet->client_id);
+      $fullname = $client->lastname . ', ' . $client->firstname . ' ' . $client->middlename;
+      $gender = $client->gender;
       require_once('views/coaches/viewsymptomsheet.php');
     }
 
@@ -355,9 +355,9 @@
       $queries = array();
       parse_str($_SERVER['QUERY_STRING'],$queries);
       $cid = $queries['id'];
-      $customer = Customer::findByCustomerId($cid);
-      $fullname = $customer->lastname . ', ' . $customer->firstname . ' ' . $customer->middlename;
-      $symptomsheets = SymptomSheet::getByCustomerId($cid);
+      $client = client::findByClientId($cid);
+      $fullname = $client->lastname . ', ' . $client->firstname . ' ' . $client->middlename;
+      $symptomsheets = SymptomSheet::getByClientId($cid);
       require_once('views/coaches/selectsymptomsheet.php');
       //
     }
@@ -377,9 +377,9 @@
       else
       {
         $symptomsheet = SymptomSheet::getById($sid);
-        $cid = $symptomsheet->customer_id;
-        $customer = Customer::findByCustomerId($cid);
-        $fullname = $customer->lastname . ', ' . $customer->firstname . ' ' . $customer->middlename;
+        $cid = $symptomsheet->client_id;
+        $client = client::findByClientId($cid);
+        $fullname = $client->lastname . ', ' . $client->firstname . ' ' . $client->middlename;
   
         require_once('views/coaches/deletesymptomsheet.php');
       }
@@ -391,9 +391,9 @@
       $queries = array();
       parse_str($_SERVER['QUERY_STRING'],$queries);
       $cid = $queries['id'];
-      $customer = Customer::findByCustomerId($cid);
-      $fullname = $customer->lastname . ', ' . $customer->firstname . ' ' . $customer->middlename;
-      $gender = $customer->gender;
+      $client = client::findByClientId($cid);
+      $fullname = $client->lastname . ', ' . $client->firstname . ' ' . $client->middlename;
+      $gender = $client->gender;
       if(isset($_POST['Submit']))
       {
 
@@ -602,9 +602,9 @@
       parse_str($_SERVER['QUERY_STRING'],$queries);
       $sid = $queries['id'];
       $symptomsheet = SymptomSheet::getById($sid);
-      $customer = Customer::findByCustomerId($symptomsheet->customer_id);
-      $fullname = $customer->lastname . ', ' . $customer->firstname . ' ' . $customer->middlename;
-      $gender = $customer->gender;
+      $client = client::findByClientId($symptomsheet->client_id);
+      $fullname = $client->lastname . ', ' . $client->firstname . ' ' . $client->middlename;
+      $gender = $client->gender;
             
 			if(isset($_POST['Submit'])) //button id
 			{
@@ -804,9 +804,9 @@
       else
       {
         // $symptomsheet = SymptomSheet::getById($sid);
-        // $customer = Customer::findByCustomerId($symptomsheet->customer_id);
-        // $fullname = $customer->lastname . ', ' . $customer->firstname . ' ' . $customer->middlename;
-        // $gender = $customer->gender;
+        // $client = client::findByclientId($symptomsheet->client_id);
+        // $fullname = $client->lastname . ', ' . $client->firstname . ' ' . $client->middlename;
+        // $gender = $client->gender;
 
         require_once('views/coaches/editsymptomsheet.php');
       }

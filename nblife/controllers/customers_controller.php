@@ -3,13 +3,13 @@
 require_once('models/htma.php');
 require_once('models/htmaratiocalculator.php');
 
-  class CustomersController 
+  class ClientsController 
   {
     public function index() //view dashboard
     {
       try 
       {
-        require_once('views/customers/dashboard.php');
+        require_once('views/clients/dashboard.php');
       }
       catch(Exception $err)
       {
@@ -24,10 +24,10 @@ require_once('models/htmaratiocalculator.php');
       try
       {
         $user = unserialize($_SESSION['User']);
-        $customer = R::findOne('customer',$user->id);
-        $cid = $customer->id;
-        $htmaresults = HTMA::findAllByCustomerId($cid);
-        require_once('views/customers/selecthtma.php');
+        $client = R::findOne('client',$user->id);
+        $cid = $client->id;
+        $htmaresults = HTMA::findAllByClientId($cid);
+        require_once('views/clients/selecthtma.php');
       }
       catch(Exception $err)
       {
@@ -47,7 +47,7 @@ require_once('models/htmaratiocalculator.php');
         $hid = $queries['id'];
         $htma = HTMA::findByID($hid);
         $htmacalc = new HTMARatioCalculator($htma);
-        require_once('views/customers/htmaataglance.php');
+        require_once('views/clients/htmaataglance.php');
       }
       catch(Exception $err)
       {
@@ -64,7 +64,7 @@ require_once('models/htmaratiocalculator.php');
     {
       try 
       {
-        Customer::sendMessageToCoach();
+        Client::sendMessageToCoach();
       }
       catch(Exception $err)
       {
@@ -80,7 +80,7 @@ require_once('models/htmaratiocalculator.php');
     {
       try 
       {
-        Customer::viewMessages(1);
+        Client::viewMessages(1);
       }
       catch(Exception $err)
       {
@@ -95,7 +95,7 @@ require_once('models/htmaratiocalculator.php');
     {
       try 
       {
-        Customer::readMessage(1);
+        Client::readMessage(1);
       }
       catch(Exception $err)
       {
@@ -110,7 +110,7 @@ require_once('models/htmaratiocalculator.php');
     {
       try 
       {
-        Customer::update();
+        Client::update();
       }
       catch(Exception $err)
       {

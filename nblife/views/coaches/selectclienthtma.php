@@ -8,12 +8,12 @@
 
 <div class="row">
     <div class="col-lg-12">
-        <a alt="View My Customers" href="<?php echo $GLOBALS['BASE_URL'] . 'coaches/showmycustomers'  ?> ">
-            <img  height="25" width="25" alt="" src="<?php echo $GLOBALS['BASE_URL'] . 'images/group.png' ?>">View My Customers
+        <a alt="View My Clients" href="<?php echo $GLOBALS['BASE_URL'] . 'coaches/showmyclients'  ?> ">
+            <img  height="25" width="25" alt="" src="<?php echo $GLOBALS['BASE_URL'] . 'images/group.png' ?>">View My Clients
         </a>
         &nbsp;&nbsp;&nbsp;        
 
-        <a alt="Add Customer" href="<?php echo $GLOBALS['BASE_URL'] . 'coaches/addcustomerhtma/' . $cid; ?> ">
+        <a alt="Add Client" href="<?php echo $GLOBALS['BASE_URL'] . 'coaches/addclienthtma/' . $cid; ?> ">
             <img  height="25" width="25" alt="" src="<?php echo $GLOBALS['BASE_URL'] . 'images/person.png' ?>">Add HTMA
         </a>
         
@@ -37,8 +37,8 @@
                 foreach($htmaresults as $htmaresult)
                 {
                     echo '<tr>';
-                    echo '<td><a href="' . $GLOBALS['BASE_URL'] . 'coaches/editcustomerhtma/' . $htmaresult->id .  '"><img alt="Edit Customer HTMA" src="' .  $GLOBALS['BASE_URL'] . 'images/pencil.png" height="25" width="25">Edit </a></td>';
-                    echo '<td><a href="' . $GLOBALS['BASE_URL'] . 'coaches/deletecustomerhtma/' . $htmaresult->id .  '"><img alt="Delete Customer" src="' .  $GLOBALS['BASE_URL'] . 'images/cancel.png" height="25" width="25">Delete</a></td>';
+                    echo '<td><a href="' . $GLOBALS['BASE_URL'] . 'coaches/editclienthtma/' . $htmaresult->id .  '"><img alt="Edit Client HTMA" src="' .  $GLOBALS['BASE_URL'] . 'images/pencil.png" height="25" width="25">Edit </a></td>';
+                    echo '<td><a href="' . $GLOBALS['BASE_URL'] . 'coaches/deleteclienthtma/' . $htmaresult->id .  '"><img alt="Delete Client" src="' .  $GLOBALS['BASE_URL'] . 'images/cancel.png" height="25" width="25">Delete</a></td>';
                     echo '<td>' . $htmaresult->labnumber .  '</td>';
                     echo '<td>' . $htmaresult->labdate .  '</td>';
                     echo '</tr>';

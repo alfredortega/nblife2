@@ -202,13 +202,13 @@
                                 <?php
                                     $user = unserialize($_SESSION['User']);
                                     $userid = $user->id;
-                                    $customer = R::findOne('customer',$userid);
-                                    $customerid = $customer->id;
+                                    $client = R::findOne('client',$userid);
+                                    $clientid = $client->id;
 
                                 ?>
-                                <li><a href="<?php echo $GLOBALS['BASE_URL'] . 'users/editprofile/' . $customerid; ?>"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                                <li><a href="<?php echo $GLOBALS['BASE_URL'] . 'users/editprofile/' . $clientid; ?>"><i class="fa fa-user fa-fw"></i> User Profile</a>
                                 </li>
-                                <li><a href="<?php echo $GLOBALS['BASE_URL'] . 'users/settings/' . $customerid; ?>"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                                <li><a href="<?php echo $GLOBALS['BASE_URL'] . 'users/settings/' . $clientid; ?>"><i class="fa fa-gear fa-fw"></i> Settings</a>
                                 </li>
                                 <li class="divider"></li>
 
@@ -298,7 +298,7 @@
                                     $role->name;
                                     array_push($roles,$role->name);
                                 } 
-                                if(in_array('Customer',$roles))
+                                if(in_array('client',$roles))
                                 {    
                         ?>
 
@@ -306,14 +306,14 @@
 
                         
                         <li class="active">
-                        <a href="#"><i class="fa fa-files-o fa-fw"></i>Customer Pages<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-files-o fa-fw"></i>Client Pages<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="<?php  echo $GLOBALS['BASE_URL'] . 'customers/index'; ?>"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                                    <a href="<?php  echo $GLOBALS['BASE_URL'] . 'clients/index'; ?>"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                                 </li>
 
                                 <li>
-                                    <a href="<?php echo $GLOBALS['BASE_URL'] .'customers/selecthtma'; ?>">HTMA At A Glance</a>
+                                    <a href="<?php echo $GLOBALS['BASE_URL'] .'clients/selecthtma'; ?>">HTMA At A Glance</a>
                                 </li>
                                 <li>
                                     <a href="<?php echo $GLOBALS['BASE_URL'] .'pages/faq'; ?>">FAQ</a>
@@ -347,13 +347,13 @@
                                     <a href="<?php echo $GLOBALS['BASE_URL'] . 'coaches/index'; ?>"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo $GLOBALS['BASE_URL'] .'coaches/showallcustomers'; ?>">View All Customers</a>
+                                    <a href="<?php echo $GLOBALS['BASE_URL'] .'coaches/showallclients'; ?>">View All Clients</a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo $GLOBALS['BASE_URL'] .'coaches/showmycustomers'; ?>">View My Customers</a>
+                                    <a href="<?php echo $GLOBALS['BASE_URL'] .'coaches/showmyclients'; ?>">View My Clients</a>
                                 </li>
                                 <li>
-                                <a href="<?php echo $GLOBALS['BASE_URL'] .'coaches/addcustomer'; ?>">Add Customer</a>
+                                <a href="<?php echo $GLOBALS['BASE_URL'] .'coaches/addclient'; ?>">Add Client</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

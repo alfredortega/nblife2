@@ -1,7 +1,8 @@
 <fieldset>
-    <legend>Edit Customer</legend>
+    <legend>Add Client</legend>
     <form action="" method="post" >
-    <div class="row">
+<!-- /.row -->
+<div class="row">
         <div class="col-md-4">
             <label for="firstname">First Name</label>
             <input type="text" 
@@ -9,8 +10,9 @@
                     class="form-control" 
                     required="required" 
                     name="firstname"
-                    value="<?php echo $customer->firstname ?>" 
-                    placeholder="First Name">
+                    value="" 
+                    placeholder="First Name"
+                    autofocus>
         </div>
         <div class="col-md-4">
             <label for="middlename">Middle Name</label>
@@ -18,7 +20,7 @@
                     id="middlename" 
                     class="form-control"
                     name="middlename"
-                    value="<?php echo $customer->middlename ?>" 
+                    value="" 
                     placeholder="Middle Name">
         </div>
         <div class="col-md-4">
@@ -28,7 +30,7 @@
                     class="form-control" 
                     required="required" 
                     name="lastname"
-                    value="<?php echo $customer->lastname ?>" 
+                    value="" 
                     placeholder="Last Name">
         </div>
     </div>
@@ -42,7 +44,7 @@
                     required="required"
                     name="dateofbirth"
                     class="form-control"
-                    value="<?php echo $customer->dateofbirth ?>"
+                    value=""
                     >
         
         </div>
@@ -52,11 +54,11 @@
                     name="salutation"
                     class="form-control"
                     >
-                <option value="Mr" <?php if($customer->salutation == 'Mr') echo 'selected'; ?> >Mr</option>
-                <option value="Ms" <?php if($customer->salutation == 'Ms') echo 'selected'; ?> >Ms</option>
-                <option value="Mrs" <?php if($customer->salutation == 'Mrs') echo 'selected'; ?> >Mrs</option>
-                <option value="Rev" <?php if($customer->salutation == 'Rev') echo 'selected'; ?> >Rev</option>
-                <option value="Dr" <?php if($customer->salutation == 'Dr') echo 'selected'; ?> >Dr</option>
+                <option value="Mr" >Mr</option>
+                <option value="Ms" >Ms</option>
+                <option value="Mrs" >Mrs</option>
+                <option value="Rev" >Rev</option>
+                <option value="Dr" >Dr</option>
             </select>
         </div>
         <div class="col-md-4"> 
@@ -65,8 +67,8 @@
                     name="gender"
                     class="form-control"
                     >
-                <option value="M" <?php if($customer->gender == 'M') echo 'selected'; ?> >Male</option>
-                <option value="F"<?php if($customer->gender == 'F') echo 'selected'; ?>>Female</option>
+                <option value="M" >Male</option>
+                <option value="F" >Female</option>
             </select>
         </div>
     </div>
@@ -79,7 +81,7 @@
                     class="form-control" 
                     required="required" 
                     name="streetaddress"
-                    value="<?php echo $customer->streetaddress ?>" 
+                    value="" 
                     placeholder="Street Address">
 
         </div>
@@ -89,7 +91,7 @@
                     id="streetaddress2" 
                     class="form-control" 
                     name="streetaddress2" 
-                    value="<?php echo $customer->streetaddress2 ?>"
+                    value=""
                     placeholder="Apt/Bldg #">
         </div>
     </div>
@@ -102,7 +104,7 @@
                     class="form-control"  
                     required="required" 
                     name="city"
-                    value="<?php echo $customer->city ?>" 
+                    value="" 
                     placeholder="City">
         </div>
         <div class="col-md-2">
@@ -113,7 +115,7 @@
                     required="required" 
                     name="state" 
                     maxlength="2"
-                    value="<?php echo $customer->state ?>"
+                    value=""
                     placeholder="State">
         </div>
         <div class="col-md-3">
@@ -124,7 +126,7 @@
                     required="required" 
                     name="zipcode" 
                     placeholder="Zip Code"
-                    value="<?php echo $customer->zipcode ?>"
+                    value=""
                     maxlength="10">
         </div>
     </div>
@@ -137,7 +139,7 @@
                     class="form-control" 
                     required="required" 
                     name="homephone"
-                    value="<?php echo $customer->homephone ?>" 
+                    value="" 
                     placeholder="Home or Cell Phone">
         </div>
         <div class="col-md-4">
@@ -146,7 +148,7 @@
                     id="workphone" 
                     class="form-control" 
                     name="workphone"
-                    value="<?php echo $customer->workphone ?>" 
+                    value="" 
                     placeholder="Work Phone">
 
         </div>
@@ -157,7 +159,7 @@
                     required="required" 
                     name="height"
                     class="form-control" 
-                    value="<?php echo $customer->height ?>"
+                    value=""
                     placeholder="5'8">
 
         </div>
@@ -167,11 +169,27 @@
                     id="weight" 
                     required="required" 
                     name="weight"
-                    value="<?php echo $customer->weight ?>"
+                    value=""
                     class="form-control" 
                     placeholder="160">
         </div>
     </div>
+    <div class="row">
+        <div class="col-md-12">
+            <br/>
+            <p class="text-warning">This is the email address the person will use to login with the default password of: <?php echo $GLOBALS['DEFAULT_PASSWORD'];  ?></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <label>Email Address</label>
+            <input type="email" class="form-control" placeholder="Enter Email Address" id="emailaddress" name="emailaddress" value="">
+        </div>
+        <div class="col-lg-6">
+            <label>Conf Email Address</label>
+            <input type="email" class="form-control" placeholder="Enter Email Address" id="confemailaddress" name="confemailaddress" value="">
+        </div>
+    </div><!-- end row -->
     <br/>
     <div class="row">
         <div class="col-lg-2">
@@ -182,5 +200,6 @@
             <input value="Cancel" class="btn btn-lg btn-primary btn-block" onclick="window.history.go(-1); return false;">
         </div>    
     </div>
+
     </form>
 </fieldset>

@@ -2,9 +2,9 @@
 class HTMA
 {
 
-    public static function findAllByCustomerId($cid)
+    public static function findAllByClientId($cid)
     {
-        return R::find('htmaresult','customer_id = ?',[$cid]);
+        return R::find('htmaresult','Client_id = ?',[$cid]);
     }
 
     public static function findByID($htmaid)
@@ -15,8 +15,8 @@ class HTMA
     public static function addhtmaresult($cid,$labnumber,$labdate,$calcium,$magnesium,$sodium,$potassium, $iron,$copper,$manganese,$zinc,$chromium,$selenium,$phosphorus,$lead,$mercury,$cadmium,$arsenic,$aluminum,$nickel,$cobalt,$molybdenum,$lithium,$boron)
     {
         $htma = R::dispense('htmaresult');
-        $customer = R::load('customer',$cid);
-        $htma->customer = $customer;
+        $client = R::load('client',$cid);
+        $htma->client = $client;
         $htma->labnumber = $labnumber;
         $htma->labdate = $labdate;
 

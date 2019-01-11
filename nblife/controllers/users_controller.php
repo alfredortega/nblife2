@@ -1,5 +1,5 @@
 <?php
-	require_once('models/customer.php');
+	require_once('models/client.php');
 
 	class UsersController 
 	{
@@ -127,7 +127,7 @@
 			  parse_str($_SERVER['QUERY_STRING'],$queries);
 			  $id = $queries['id'];
 		
-			  if(isset($_POST['Submit'])) //update customer record
+			  if(isset($_POST['Submit'])) //update client record
 			  {
 				$dateofbirth = $_POST['dateofbirth'];
 				$salutation = $_POST['salutation'];
@@ -144,15 +144,15 @@
 				$workphone = $_POST['workphone'];
 				$height = $_POST['height'];
 				$weight = $_POST['weight'];
-				$customer = Customer::updateCustomer($id,$dateofbirth, $salutation, $gender, $firstname, $middlename, $lastname, $streetaddress, $streetaddress2, $city, $state, $zipcode, $homephone, $workphone, $height, $weight);
+				$client = Client::updateCustomer($id,$dateofbirth, $salutation, $gender, $firstname, $middlename, $lastname, $streetaddress, $streetaddress2, $city, $state, $zipcode, $homephone, $workphone, $height, $weight);
 				$messageType = 'success';
 				$message = "Your profile has been successfully updated!";
 				require_once('views/message.php');
 	  
 			  }
-			  else //load customer's record
+			  else //load client's record
 			  {
-				$customer = Customer::findByCustomerId($id);
+				$client = Client::findByCustomerId($id);
 				require_once('views/users/editprofile.php');
 			  }
 	  

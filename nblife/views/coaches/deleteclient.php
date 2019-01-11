@@ -1,7 +1,7 @@
 <form action="" method="POST">
 
     <div class="alert alert-danger">
-        You are about to delete <?php echo $customer->firstname . ' ' .  $customer->lastname;  ?> ? Are you sure?
+        You are about to delete <?php echo $client->firstname . ' ' .  $client->lastname;  ?> ? Are you sure?
     </div>
 
     <div class="row">

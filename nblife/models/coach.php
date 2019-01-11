@@ -5,76 +5,76 @@
         {
         }        
 
-        public static function findAllCustomers()
+        public static function findAllClients()
         {
-            $beans = R::findMulti('customer,user',
-            'select customer.*, user.* from customer, user where
-             user.id = customer.user_id
+            $beans = R::findMulti('client,user',
+            'select client.*, user.* from client, user where
+             user.id = client.user_id
             and user.isactive = 1');
-            $customers = $beans['customer'];
-            return $customers;
+            $clients = $beans['client'];
+            return $clients;
         }
 
     
-        public static function findCustomersByCoach($userid)
+        public static function findClientsByCoach($userid)
         {
             $coach = R::FindOne('coach','user_id = ?',[$userid]);
-            $beans = R::findMulti('customer,user',
-            'select customer.*, user.* from customer , user
-            where user.id = customer.user_id and 
-            user.isactive = 1 and customer.coach_id = ?',[$coach->id]);
-            $customers = $beans['customer'];
-            return $customers;
+            $beans = R::findMulti('client,user',
+            'select client.*, user.* from client , user
+            where user.id = client.user_id and 
+            user.isactive = 1 and client.coach_id = ?',[$coach->id]);
+            $clients = $beans['client'];
+            return $clients;
         }
 
-        public static function addCustomer($email, $dateofbirth, $salutation, $gender, $firstname, $middlename, $lastname, $streetaddress, $streetaddress2, $city, $state, $zipcode, $homephone, $workphone, $height, $weight, $userid)
+        public static function addClient($email, $dateofbirth, $salutation, $gender, $firstname, $middlename, $lastname, $streetaddress, $streetaddress2, $city, $state, $zipcode, $homephone, $workphone, $height, $weight, $userid)
         {
             $user = User::insert($email);
             $coach = R::FindOne('coach','user_id = ?',[$userid]);
-            $customer = R::dispense('customer');
-            $customer->dateofbirth =$dateofbirth;
-            $customer->salutation = $salutation;
-            $customer->gender = $gender;
-            $customer->firstname = $firstname;
-            $customer->middlename = $middlename;
-            $customer->lastname = $lastname;
-            $customer->streetaddress = $streetaddress;
-            $customer->streetaddress2 = $streetaddress2;
-            $customer->city = $city;
-            $customer->state = $state;
-            $customer->zipcode = $zipcode;
-            $customer->homephone = $homephone;
-            $customer->workphone = $workphone;
-            $customer->height = $height;
-            $customer->weight = $weight;
-            $customer->user = $user;
-            $customer->coach = $coach;      
-            R::store($customer);     
-            return $customer; 
+            $client = R::dispense('client');
+            $client->dateofbirth =$dateofbirth;
+            $client->salutation = $salutation;
+            $client->gender = $gender;
+            $client->firstname = $firstname;
+            $client->middlename = $middlename;
+            $client->lastname = $lastname;
+            $client->streetaddress = $streetaddress;
+            $client->streetaddress2 = $streetaddress2;
+            $client->city = $city;
+            $client->state = $state;
+            $client->zipcode = $zipcode;
+            $client->homephone = $homephone;
+            $client->workphone = $workphone;
+            $client->height = $height;
+            $client->weight = $weight;
+            $client->user = $user;
+            $client->coach = $coach;      
+            R::store($client);     
+            return $client; 
         }
 
-        public static function updateCustomer($id,$dateofbirth, $salutation, $gender, $firstname, $middlename, $lastname, $streetaddress, $streetaddress2, $city, $state, $zipcode, $homephone, $workphone, $height, $weight, $userid)
+        public static function updateClient($id,$dateofbirth, $salutation, $gender, $firstname, $middlename, $lastname, $streetaddress, $streetaddress2, $city, $state, $zipcode, $homephone, $workphone, $height, $weight, $userid)
         {
             $coach = R::FindOne('coach','user_id = ?',[$userid]);
-            $customer = R::load('customer',$id);
-            $customer->dateofbirth =$dateofbirth;
-            $customer->salutation = $salutation;
-            $customer->gender = $gender;
-            $customer->firstname = $firstname;
-            $customer->middlename = $middlename;
-            $customer->lastname = $lastname;
-            $customer->streetaddress = $streetaddress;
-            $customer->streetaddress2 = $streetaddress2;
-            $customer->city = $city;
-            $customer->state = $state;
-            $customer->zipcode = $zipcode;
-            $customer->homephone = $homephone;
-            $customer->workphone = $workphone;
-            $customer->height = $height;
-            $customer->weight = $weight;
-            $customer->coach = $coach;      
-            R::store($customer);     
-            return $customer; 
+            $client = R::load('client',$id);
+            $client->dateofbirth =$dateofbirth;
+            $client->salutation = $salutation;
+            $client->gender = $gender;
+            $client->firstname = $firstname;
+            $client->middlename = $middlename;
+            $client->lastname = $lastname;
+            $client->streetaddress = $streetaddress;
+            $client->streetaddress2 = $streetaddress2;
+            $client->city = $city;
+            $client->state = $state;
+            $client->zipcode = $zipcode;
+            $client->homephone = $homephone;
+            $client->workphone = $workphone;
+            $client->height = $height;
+            $client->weight = $weight;
+            $client->coach = $coach;      
+            R::store($client);     
+            return $client; 
         }
 
         

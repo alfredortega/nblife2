@@ -22,7 +22,7 @@ else
     }
     else
     {
-        require_once('tabs/dashboard_customer.php');
+        require_once('tabs/dashboard_client.php');
     }
 }
 

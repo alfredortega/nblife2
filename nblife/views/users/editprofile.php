@@ -9,7 +9,7 @@
                     class="form-control" 
                     required="required" 
                     name="firstname"
-                    value="<?php echo $customer->firstname ?>" 
+                    value="<?php echo $client->firstname ?>" 
                     placeholder="First Name">
         </div>
         <div class="col-md-4">
@@ -18,7 +18,7 @@
                     id="middlename" 
                     class="form-control"
                     name="middlename"
-                    value="<?php echo $customer->middlename ?>" 
+                    value="<?php echo $client->middlename ?>" 
                     placeholder="Middle Name">
         </div>
         <div class="col-md-4">
@@ -28,7 +28,7 @@
                     class="form-control" 
                     required="required" 
                     name="lastname"
-                    value="<?php echo $customer->lastname ?>" 
+                    value="<?php echo $client->lastname ?>" 
                     placeholder="Last Name">
         </div>
     </div>
@@ -42,7 +42,7 @@
                     required="required"
                     name="dateofbirth"
                     class="form-control"
-                    value="<?php echo $customer->dateofbirth ?>"
+                    value="<?php echo $client->dateofbirth ?>"
                     >
         
         </div>
@@ -52,11 +52,11 @@
                     name="salutation"
                     class="form-control"
                     >
-                <option value="Mr" <?php if($customer->salutation == 'Mr') echo 'selected'; ?> >Mr</option>
-                <option value="Ms" <?php if($customer->salutation == 'Ms') echo 'selected'; ?> >Ms</option>
-                <option value="Mrs" <?php if($customer->salutation == 'Mrs') echo 'selected'; ?> >Mrs</option>
-                <option value="Rev" <?php if($customer->salutation == 'Rev') echo 'selected'; ?> >Rev</option>
-                <option value="Dr" <?php if($customer->salutation == 'Dr') echo 'selected'; ?> >Dr</option>
+                <option value="Mr" <?php if($client->salutation == 'Mr') echo 'selected'; ?> >Mr</option>
+                <option value="Ms" <?php if($client->salutation == 'Ms') echo 'selected'; ?> >Ms</option>
+                <option value="Mrs" <?php if($client->salutation == 'Mrs') echo 'selected'; ?> >Mrs</option>
+                <option value="Rev" <?php if($client->salutation == 'Rev') echo 'selected'; ?> >Rev</option>
+                <option value="Dr" <?php if($client->salutation == 'Dr') echo 'selected'; ?> >Dr</option>
             </select>
         </div>
         <div class="col-md-4"> 
@@ -65,8 +65,8 @@
                     name="gender"
                     class="form-control"
                     >
-                <option value="M" <?php if($customer->gender == 'M') echo 'selected'; ?> >Male</option>
-                <option value="F"<?php if($customer->gender == 'F') echo 'selected'; ?>>Female</option>
+                <option value="M" <?php if($client->gender == 'M') echo 'selected'; ?> >Male</option>
+                <option value="F"<?php if($client->gender == 'F') echo 'selected'; ?>>Female</option>
             </select>
         </div>
     </div>
@@ -79,7 +79,7 @@
                     class="form-control" 
                     required="required" 
                     name="streetaddress"
-                    value="<?php echo $customer->streetaddress ?>" 
+                    value="<?php echo $client->streetaddress ?>" 
                     placeholder="Street Address">
 
         </div>
@@ -89,7 +89,7 @@
                     id="streetaddress2" 
                     class="form-control" 
                     name="streetaddress2" 
-                    value="<?php echo $customer->streetaddress2 ?>"
+                    value="<?php echo $client->streetaddress2 ?>"
                     placeholder="Apt/Bldg #">
         </div>
     </div>
@@ -102,7 +102,7 @@
                     class="form-control"  
                     required="required" 
                     name="city"
-                    value="<?php echo $customer->city ?>" 
+                    value="<?php echo $client->city ?>" 
                     placeholder="City">
         </div>
         <div class="col-md-2">
@@ -113,7 +113,7 @@
                     required="required" 
                     name="state" 
                     maxlength="2"
-                    value="<?php echo $customer->state ?>"
+                    value="<?php echo $client->state ?>"
                     placeholder="State">
         </div>
         <div class="col-md-3">
@@ -124,7 +124,7 @@
                     required="required" 
                     name="zipcode" 
                     placeholder="Zip Code"
-                    value="<?php echo $customer->zipcode ?>"
+                    value="<?php echo $client->zipcode ?>"
                     maxlength="10">
         </div>
     </div>
@@ -137,7 +137,7 @@
                     class="form-control" 
                     required="required" 
                     name="homephone"
-                    value="<?php echo $customer->homephone ?>" 
+                    value="<?php echo $client->homephone ?>" 
                     placeholder="Home or Cell Phone">
         </div>
         <div class="col-md-4">
@@ -146,7 +146,7 @@
                     id="workphone" 
                     class="form-control" 
                     name="workphone"
-                    value="<?php echo $customer->workphone ?>" 
+                    value="<?php echo $client->workphone ?>" 
                     placeholder="Work Phone">
 
         </div>
@@ -157,7 +157,7 @@
                     required="required" 
                     name="height"
                     class="form-control" 
-                    value="<?php echo $customer->height ?>"
+                    value="<?php echo $client->height ?>"
                     placeholder="5'8">
 
         </div>
@@ -167,7 +167,7 @@
                     id="weight" 
                     required="required" 
                     name="weight"
-                    value="<?php echo $customer->weight ?>"
+                    value="<?php echo $client->weight ?>"
                     class="form-control" 
                     placeholder="160">
         </div>

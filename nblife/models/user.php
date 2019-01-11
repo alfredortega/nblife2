@@ -95,7 +95,7 @@ class User
 	public static function insert($email)
 	{
 		/*
-		This is for when a coach creates a new customer and a user must be added first.
+		This is for when a coach creates a new client and a user must be added first.
 		It is provided a default password and the user object will be returned.
 		*/
 		$password = $GLOBALS['DEFAULT_PASSWORD'];
@@ -113,8 +113,8 @@ class User
 
 	public static function delete($cid)
 	{ //we do a soft delete
-		$customer = R::load('customer',$cid);
-		$user = R::load('user',$customer->user_id);
+		$client = R::load('client',$cid);
+		$user = R::load('user',$client->user_id);
 		$user->lastupdated = date('Y-m-d H:i:s');
 		$user->islocked = 1;
 		$user->isactive = 0;
