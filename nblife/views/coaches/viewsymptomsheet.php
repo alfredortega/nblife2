@@ -134,6 +134,8 @@
             <input disabled type='checkbox' id='cough' name='cough' <?php echo ($symptomsheet->cough == 1) ? "checked='checked'" : "" ;  ?>>Cough<br/>
             <input disabled type='checkbox' id='postnasaldrip' name='postnasaldrip' <?php echo ($symptomsheet->postnasaldrip == 1) ? "checked='checked'" : "" ;  ?>>Post-nasal Drip<br/>
             <input disabled type='checkbox' id='sinuscongestion' name='sinuscongestion' <?php echo ($symptomsheet->sinuscongestion == 1) ? "checked='checked'" : "" ;  ?>>Sinus Congestion<br/>
+            <input disabled type='checkbox' id='tinnitus' name='tinnitus' <?php echo ($symptomsheet->tinnitus == 1) ? "checked='checked'" : "" ;  ?>>Tinnitus<br/>
+            <input disabled type='checkbox' id='ringinginears' name='ringinginears' <?php echo ($symptomsheet->ringinginears == 1) ? "checked='checked'" : "" ;  ?> >Ringing in Ears<br/>
             <br/>
             <input disabled type='checkbox' id='bodytemperaturelow' name='bodytemperaturelow' <?php echo ($symptomsheet->bodytemperaturelow == 1) ? "checked='checked'" : "" ;  ?>>Body Temperature Low<br/>
             <input disabled type='checkbox' id='bodytemperaturecoldinwinter' name='bodytemperaturecoldinwinter' <?php echo ($symptomsheet->bodytemperaturecoldinwinter == 1) ? "checked='checked'" : "" ;  ?>>Body Temperature Cold in Winter<br/>
@@ -176,6 +178,8 @@
             <input disabled type='checkbox' id='kidneystones' name='kidneystones' <?php echo ($symptomsheet->kidneystones == 1) ? "checked='checked'" : "" ;  ?>>Kidney Stones<br/>
             <input disabled type='checkbox' id='urinationfrequent' name='urinationfrequent' <?php echo ($symptomsheet->urinationfrequent == 1) ? "checked='checked'" : "" ;  ?>>Urination, Frequent<br/>
             <input disabled type='checkbox' id='urinationpainful' name='urinationpainful' <?php echo ($symptomsheet->urinationpainful == 1) ? "checked='checked'" : "" ;  ?>>Urination, Painful<br/>
+            <input disabled type='checkbox' id='waterretention' name='waterretention' <?php echo ($symptomsheet->waterretention == 1) ? "checked='checked'" : "" ;  ?>>Water Retention<br/>
+
             <br/>
 
             <?php
@@ -257,14 +261,6 @@
                     echo " <input disabled type='checkbox' id='premenstrualsyndrome' name='premenstrualsyndrome'>Premenstrual Syndrome<br/>";
                 }
                 
-                if($symptomsheet->waterretention == 1)
-                {
-                    echo " <input disabled type='checkbox' id='waterretention' name='waterretention' checked='checked'>Water Retention<br/>";
-                }
-                else
-                {
-                    echo " <input disabled type='checkbox' id='waterretention' name='waterretention'>Water Retention<br/>";
-                }
                 
                 if($symptomsheet->menstruationdelayedstopped == 1)
                 {

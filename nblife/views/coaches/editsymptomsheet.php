@@ -134,7 +134,9 @@
             <input type='checkbox' id='cough' name='cough' <?php echo ($symptomsheet->cough == 1) ? "checked='checked'" : "" ;  ?>>Cough<br/>
             <input type='checkbox' id='postnasaldrip' name='postnasaldrip' <?php echo ($symptomsheet->postnasaldrip == 1) ? "checked='checked'" : "" ;  ?>>Post-nasal Drip<br/>
             <input type='checkbox' id='sinuscongestion' name='sinuscongestion' <?php echo ($symptomsheet->sinuscongestion == 1) ? "checked='checked'" : "" ;  ?>>Sinus Congestion<br/>
-            <br/>
+            <input type='checkbox' id='tinnitus' name='tinnitus' <?php echo ($symptomsheet->tinnitus == 1) ? "checked='checked'" : "" ;  ?>>Tinnitus<br/>
+            <input type='checkbox' id='ringinginears' name='ringinginears' <?php echo ($symptomsheet->ringinginears == 1) ? "checked='checked'" : "" ;  ?> >Ringing in Ears<br/>
+            <br/> 
             <input type='checkbox' id='bodytemperaturelow' name='bodytemperaturelow' <?php echo ($symptomsheet->bodytemperaturelow == 1) ? "checked='checked'" : "" ;  ?>>Body Temperature Low<br/>
             <input type='checkbox' id='bodytemperaturecoldinwinter' name='bodytemperaturecoldinwinter' <?php echo ($symptomsheet->bodytemperaturecoldinwinter == 1) ? "checked='checked'" : "" ;  ?>>Body Temperature Cold in Winter<br/>
             <input type='checkbox' id='dryskin' name='dryskin' <?php echo ($symptomsheet->dryskin == 1) ? "checked='checked'" : "" ;  ?>>Dry Skin<br/>
@@ -176,6 +178,7 @@
             <input type='checkbox' id='kidneystones' name='kidneystones' <?php echo ($symptomsheet->kidneystones == 1) ? "checked='checked'" : "" ;  ?>>Kidney Stones<br/>
             <input type='checkbox' id='urinationfrequent' name='urinationfrequent' <?php echo ($symptomsheet->urinationfrequent == 1) ? "checked='checked'" : "" ;  ?>>Urination, Frequent<br/>
             <input type='checkbox' id='urinationpainful' name='urinationpainful' <?php echo ($symptomsheet->urinationpainful == 1) ? "checked='checked'" : "" ;  ?>>Urination, Painful<br/>
+            <input type='checkbox' id='waterretention' name='waterretention' <?php echo ($symptomsheet->waterretention == 1) ? "checked='checked'" : "" ;  ?>>Water Retention<br/>
             <br/>
 
             <?php
@@ -220,7 +223,6 @@
                 {
                     echo " <input type = 'checkbox' id = 'cramps' name = 'cramps'>Cramps<br/>";
                 }
-                ;
                 
                 if($symptomsheet->periodsheavy == 1)
                 {
@@ -230,7 +232,6 @@
                 {
                     echo " <input type = 'checkbox' id = 'periodsheavy' name = 'periodsheavy'>Periods, heavy<br/>";
                 }
-                ;
                 
                 if($symptomsheet->periodsirregular == 1)
                 {
@@ -240,7 +241,6 @@
                 {
                     echo " <input type = 'checkbox' id = 'periodsirregular' name = 'periodsirregular'>Periods Irregular<br/>";
                 }
-                ;
                 
                 if($symptomsheet->periodslight == 1)
                 {
@@ -250,7 +250,6 @@
                 {
                     echo " <input type = 'checkbox' id = 'periodslight' name = 'periodslight'>Periods, Light<br/>";
                 }
-                ;
                 
                 if($symptomsheet->premenstrualsyndrome == 1)
                 {
@@ -260,17 +259,6 @@
                 {
                     echo " <input type = 'checkbox' id = 'premenstrualsyndrome' name = 'premenstrualsyndrome'>Premenstrual Syndrome<br/>";
                 }
-                ;
-                
-                if($symptomsheet->waterretention == 1)
-                {
-                    echo " <input type = 'checkbox' id = 'waterretention' name = 'waterretention' checked= 'checked'>Water Retention<br/>";
-                }
-                else
-                {
-                    echo " <input type = 'checkbox' id = 'waterretention' name = 'waterretention'>Water Retention<br/>";
-                }
-                ;
                 
                 if($symptomsheet->menstruationdelayedstopped == 1)
                 {
@@ -280,7 +268,6 @@
                 {
                     echo " <input type = 'checkbox' id = 'menstruationdelayedstopped' name = 'menstruationdelayedstopped'>Menstruation Delayed/Stopped<br/>";
                 }
-                ;
                 
                 if($symptomsheet->menopause == 1)
                 {
@@ -290,7 +277,6 @@
                 {
                     echo " <input type = 'checkbox' id = 'menopause' name = 'menopause'>Menopause<br/>";
                 }
-                ;
                 
                 if($symptomsheet->cystsovarian == 1)
                 {
@@ -300,7 +286,7 @@
                 {
                     echo " <input type = 'checkbox' id = 'cystsovarian' name = 'cystsovarian'>Ovarian Cysts<br/>";
                 }
-                ;
+
                 
                 if($symptomsheet->papsmearabnormal == 1)
                 {
@@ -310,7 +296,7 @@
                 {
                     echo " <input type = 'checkbox' id = 'papsmearabnormal' name = 'papsmearabnormal'>Abnormal Papsmear<br/>";
                 }
-                ;
+
                 
                 if($symptomsheet->breastsfibrocystic == 1)
                 {
@@ -320,7 +306,6 @@
                 {
                     echo " <input type = 'checkbox' id = 'breastsfibrocystic' name = 'breastsfibrocystic'>Breasts, Fibrocystic<br/>";
                 }
-                ;
                 
                 if($symptomsheet->breaststumors == 1)
                 {
@@ -330,7 +315,6 @@
                 {
                     echo " <input type = 'checkbox' id = 'breaststumors' name = 'breaststumors'>Breasts, Tumors<br/>";
                 }
-                ;
                 
                 if($symptomsheet->infertility == 1)
                 {
@@ -340,7 +324,6 @@
                 {
                     echo " <input type = 'checkbox' id = 'infertility' name = 'infertility'>Infertility<br/>";
                 }
-                ;
                 
                 if($symptomsheet->vaginalyeastinfections == 1)
                 {
@@ -350,7 +333,6 @@
                 {
                     echo " <input type = 'checkbox' id = 'vaginalyeastinfections' name = 'vaginalyeastinfections'>Vaginal Yeast Infections<br/>";
                 }
-                ;
                 
                 if($symptomsheet->hotflashes == 1)
                 {
@@ -360,7 +342,6 @@
                 {
                     echo " <input type = 'checkbox' id = 'hotflashes' name = 'hotflashes'>Hot Flashes<br/>";
                 }
-                ;
                 
                 if($symptomsheet->sensitivetoheat == 1)
                 {
@@ -370,7 +351,6 @@
                 {
                     echo " <input type = 'checkbox' id = 'sensitivetoheat' name = 'sensitivetoheat'>Sensitive to Heat<br/>";
                 }
-                ;
                 
                 if($symptomsheet->sensitivetocaffeine == 1)
                 {
@@ -380,7 +360,6 @@
                 {
                     echo " <input type = 'checkbox' id = 'sensitivetocaffeine' name = 'sensitivetocaffeine'>Sensitive to Caffeine<br/>";
                 }
-                ;
                 
                 
             }

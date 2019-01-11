@@ -138,6 +138,9 @@
             <input type='checkbox' id='cough' name='cough'>Cough<br/>
             <input type='checkbox' id='postnasaldrip' name='postnasaldrip'>Post-nasal Drip<br/>
             <input type='checkbox' id='sinuscongestion' name='sinuscongestion'>Sinus Congestion<br/>
+            <input type='checkbox' id='tinnitus' name='tinnitus'>Tinnitus<br/>
+            <input type='checkbox' id='ringinginears' name='ringinginears'>Ringing in Ears<br/>
+
             <br/>
             <input type='checkbox' id='bodytemperaturelow' name='bodytemperaturelow'>Body Temperature Low<br/>
             <input type='checkbox' id='bodytemperaturecoldinwinter' name='bodytemperaturecoldinwinter'>Body Temperature Cold in Winter<br/>
@@ -180,6 +183,8 @@
             <input type='checkbox' id='kidneystones' name='kidneystones'>Kidney Stones<br/>
             <input type='checkbox' id='urinationfrequent' name='urinationfrequent'>Urination, Frequent<br/>
             <input type='checkbox' id='urinationpainful' name='urinationpainful'>Urination, Painful<br/>
+            <input type='checkbox' id='waterretention' name='waterretention'>Water Retention<br/>
+
             <br/>
 
             <?php
@@ -199,7 +204,6 @@
                 echo "<input type='checkbox' id='periodsirregular' name='periodsirregular'>Periods, Irregular<br/>";
                 echo "<input type='checkbox' id='periodslight' name='periodslight'>Periods, Light<br/>";
                 echo "<input type='checkbox' id='premenstrualsyndrome' name='premenstrualsyndrome'>Premenstrual Syndrome<br/>";
-                echo "<input type='checkbox' id='waterretention' name='waterretention'>Water Retention<br/>";
                 echo "<br/> ";
                 echo "<input type='checkbox' id='menstruationdelayedstopped' name='menstruationdelayedstopped'>Menstruation Delayed/Stopped<br/>";
                 echo "<input type='checkbox' id='menopause' name='menopause'>Menopause<br/>";
