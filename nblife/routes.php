@@ -27,7 +27,7 @@
   // we're adding an entry for the new controller and its actions
   $controllers = array('pages' => ['aboutus','index', 'lifestyleataglance', 'error','faq','secretsauce','resources','dashboard'],
                        'users' => ['logout','login','register','changepassword','editprofile','settings'],
-                       'coaches' => ['index','showmyclients','showallclients','addclient','editclient','deleteclient','selectclienthtma','addclienthtma','editclienthtma','deleteclienthtma','viewsymptomsheet','deletesymptomsheet','selectsymptomsheet','addsymptomsheet','editsymptomsheet'],                            
+                       'coaches' => ['index','showmyclients','showallclients','addclient','editclient','deleteclient','selectclienthtma','addclienthtma','editclienthtma','deleteclienthtma','viewsymptomsheet','deletesymptomsheet','selectsymptomsheet','addsymptomsheet','editsymptomsheet','uploadbarchart'],                            
                        'clients' => ['htmaataglance','index','selecthtma']
                        );
   

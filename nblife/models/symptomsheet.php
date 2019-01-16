@@ -181,8 +181,8 @@
             $symptomsheet->waterretention = $waterretention;            
             $symptomsheet->tinnitus = $tinnitus;
             $symptomsheet->ringinginears = $ringinginears;            
-            $retval =  R::store($symptomsheet);
-            return $retval;
+            R::store($symptomsheet);
+            return $symptomsheet;
 
         }
 
@@ -347,12 +347,10 @@
             $symptomsheet->tinnitus = $tinnitus;
             $symptomsheet->ringinginears = $ringinginears;            
             
-            $retval =  R::store($symptomsheet);
-            return $retval;
+            R::store($symptomsheet);
+            return $symptomsheet;
+
         }
-
-
-
 
     }
 

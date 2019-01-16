@@ -3,6 +3,19 @@
 	include ('inc/rb.php');
 	
 	R::setup( $GLOBALS['DB'], $GLOBALS['DBUSER'], $GLOBALS['DBPASSWORD'] );
+//	R::freeze(true);
+
+	$user = R::Load('user',24);
+	//how to do a many-to-many relationship
+	$roles = $user->via('userrole')->sharedRoleList;
+
+
+	foreach ($roles as $role)
+	{
+		echo $role->name;
+	}
+
+
 
 /**	
 	R::freeze(true);
@@ -387,7 +400,6 @@
 	}
 	
 	
-*/	
 
 $users = R::findAll('user');
 $password = 'rmn109NIV';
@@ -397,4 +409,6 @@ foreach($users as $user)
 	$user->password = $enc;
 	R::store($user);
 }
+*/	
+
 ?>

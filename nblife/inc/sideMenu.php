@@ -298,7 +298,7 @@
                                     $role->name;
                                     array_push($roles,$role->name);
                                 } 
-                                if(in_array('client',$roles))
+                                if(in_array('Client',$roles))
                                 {    
                         ?>
 

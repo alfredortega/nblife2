@@ -47,8 +47,8 @@ class HTMA
         $htma->lithium = $lithium;
         $htma->boron = $boron;             
 
-        $retval = R::store($htma);
-        return $retval;
+        R::store($htma);
+        return $htma;
     }
 
     public static function updatehtmaresult($htmaid,$labnumber,$labdate,$calcium,$magnesium,$sodium,$potassium, $iron,$copper,$manganese,$zinc,$chromium,$selenium,$phosphorus,$lead,$mercury,$cadmium,$arsenic,$aluminum,$nickel,$cobalt,$molybdenum,$lithium,$boron)
@@ -84,8 +84,8 @@ class HTMA
         $htma->lithium = $lithium;
         $htma->boron = $boron;   
         
-        $retval = R::store($htma);
-        return $retval;
+        R::store($htma);
+        return $htma;
     }
 
     public static function delete($htmaid)

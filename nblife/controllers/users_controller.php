@@ -16,7 +16,9 @@
 					$user = User::login($username,$password);
 					if(isset($user))
 					{
-						$Curr_Roles = User::getRoles($user->id);
+						//A many-to-many relationship
+						$Curr_Roles = $user->via('userrole')->sharedRoleList;
+//						$Curr_Roles = User::getRoles($user->id);
 						$userSer = serialize($user);
 						$userrolesSer = serialize($Curr_Roles);
 						$_SESSION['User'] = $userSer;
@@ -26,7 +28,7 @@
 					}
 					else
 					{
-						throw new Exception('damn');
+						throw new Exception('Login Failure');
 					}
 				}
 				catch(Exception $err)
@@ -49,7 +51,7 @@
 		{
 			unset($_SESSION['User']);
 			unset($_SESSION['UserRoles']);
-			require_once('views/users/login.php');		
+			require_once('views/users/logout.php');		
 		}
 
 		
@@ -144,7 +146,7 @@
 				$workphone = $_POST['workphone'];
 				$height = $_POST['height'];
 				$weight = $_POST['weight'];
-				$client = Client::updateCustomer($id,$dateofbirth, $salutation, $gender, $firstname, $middlename, $lastname, $streetaddress, $streetaddress2, $city, $state, $zipcode, $homephone, $workphone, $height, $weight);
+				$client = Client::updateClient($id,$dateofbirth, $salutation, $gender, $firstname, $middlename, $lastname, $streetaddress, $streetaddress2, $city, $state, $zipcode, $homephone, $workphone, $height, $weight);
 				$messageType = 'success';
 				$message = "Your profile has been successfully updated!";
 				require_once('views/message.php');
@@ -152,7 +154,7 @@
 			  }
 			  else //load client's record
 			  {
-				$client = Client::findByCustomerId($id);
+				$client = Client::findByClientId($id);
 				require_once('views/users/editprofile.php');
 			  }
 	  

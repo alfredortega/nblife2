@@ -48,7 +48,7 @@ class User
 	public static function getRoles($id) 
 	{
         $Curr_Roles = [];
-        $userroles = R::find('userrole', 'userid = ?', [$id]);
+        $userroles = R::find('userrole', 'user_id = ?', [$id]);
         foreach($userroles as $userrole)
         {
             $role = R::load('role',$userrole->roleid);
@@ -72,6 +72,11 @@ class User
 				$user->isactive = 1;
 				$user->lastlogin = date('Y-m-d H:i:s');
 				R::store($user);
+				$role = R::findOne('role','name = ?', ['Client']);
+				$user_role = R::dispense('userrole');
+				$user_role->user = $user;
+				$user_role->role = $role;
+				R::store($user_role);
 				return $user;
 			}
 			else
@@ -108,6 +113,11 @@ class User
 		$user->isactive = 1;
 		$user->lastlogin = date('Y-m-d H:i:s');
 		R::store($user);
+		$role = R::findOne('role','name = ?', ['Client']);
+		$user_role = R::dispense('userrole');
+		$user_role->user = $user;
+		$user_role->role = $role;
+		R::store($user_role);
 		return $user;		
 	}
 
