@@ -62,14 +62,10 @@
             </select>
         </div>
         <div class="col-md-4"> 
-            <label for="gender">Gender</label>
-            <select id="gender" 
-                    name="gender"
-                    class="form-control"
-                    >
-                <option value="M" >Male</option>
-                <option value="F" >Female</option>
-            </select>
+            <label for="gender">Gender</label><br/>
+                <input type="radio" name="gender" value="M" >Male
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" name="gender" value="F">Female            
         </div>
     </div>
     <br/>

@@ -19,6 +19,7 @@
     public function showmyclients() 
     {
       $user = unserialize($_SESSION['User']);
+
       $userid = $user->id;
       $clients = Coach::findClientsByCoach($userid);
       require_once('views/coaches/showmyclients.php');
@@ -245,7 +246,7 @@
           $boron= $_POST['boron'];
           $htma = HTMA::addhtmaresult($cid,$labnumber,$labdate,$calcium,$magnesium,$sodium,$potassium, $iron,$copper,$manganese,$zinc,$chromium,$selenium,$phosphorus,$lead,$mercury,$cadmium,$arsenic,$aluminum,$nickel,$cobalt,$molybdenum,$lithium,$boron);
           $messageType = 'success';
-          $message = 'HTMA Record successfully added. You can edit/review it by <a href="' . $GLOBALS['BASE_URL'] . 'coaches/editclienthtma/' . $htma->id .  '">click here.</a>';
+          $message = 'HTMA Record successfully added. <br/>You can edit/review it by <a href="' . $GLOBALS['BASE_URL'] . 'coaches/editclienthtma/' . $htma->id .  '">click here.</a><br/><br/>To upload a bar chart <a href="' . $GLOBALS['BASE_URL'] . 'coaches/uploadbarchart/' . $htma->id .  '">click here.</a>';
           require_once('views/message.php');
         }
         catch(Exception $err)
@@ -308,7 +309,7 @@
           $updatedhtma = HTMA::updatehtmaresult($htmaid,$labnumber,$labdate,$calcium,$magnesium,$sodium,$potassium, $iron,$copper,$manganese,$zinc,$chromium,$selenium,$phosphorus,$lead,$mercury,$cadmium,$arsenic,$aluminum,$nickel,$cobalt,$molybdenum,$lithium,$boron);
           $htma = R::Load('htmaresult',$htmaid);
           $messageType = 'success';
-          $message = 'HTMA Record successfully updated';
+          $message = 'HTMA Record successfully updated. <br/>You can edit/review it by <a href="' . $GLOBALS['BASE_URL'] . 'coaches/editclienthtma/' . $htma->id .  '">click here.</a><br/><br/>To upload a bar chart <a href="' . $GLOBALS['BASE_URL'] . 'coaches/uploadbarchart/' . $htma->id .  '">click here.</a>';
           $today = date("Y-m-d");
           $client = R::load('client',$htma->client_id);
           $fullname = $client->lastname . ', ' . $client->firstname . ' ' . $client->middlename;
@@ -821,20 +822,21 @@
         $queries = array();
         parse_str($_SERVER['QUERY_STRING'],$queries);
         $htmaid = $queries['id'];
-        $htma = R::findOne('htmaresult',[$htmaid]);  
-        $target_dir = $GLOBALS['BASE_URL'] . "uploads/barchart/";
-        //        $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+        $htma = R::Load('htmaresult',$htmaid);  
+        $target_dir = "uploads/barchart/";
+        $file_tmp = $_FILES['fileToUpload']['tmp_name'];
         $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
         $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
         if($imageFileType == "pdf")
         {
-          
-
-          $htma->file_name = $target_file;
+          $htma->file_name = $GLOBALS['BASE_URL'] . $target_file;
           R::store($htma);
-  
+          move_uploaded_file($file_tmp,$target_file);
+          $message = "ARL Bar Chart has been uploaded.";
+          $messageType = "success";
+          require_once('views/message.php');
         }
         else
         {
@@ -843,20 +845,6 @@
           require_once('views/message.php');
           require_once('views/coaches/uploadbarchart.php');
         }
-
-
-        // Check if image file is a actual image or fake image
-            $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-            if($check !== false) {
-                echo "File is an image - " . $check["mime"] . ".";
-                $uploadOk = 1;
-            } else {
-                echo "File is not an image.";
-                $uploadOk = 0;
-            }
-
-
-
       }
       else
       {
@@ -865,4 +853,7 @@
 
     }
 }
+
+
+
 ?>

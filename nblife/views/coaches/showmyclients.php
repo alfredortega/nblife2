@@ -20,15 +20,14 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>Cust ID</th>
                         <th>First Name</th>
                         <th>Last Name</th>
                         <th>Edit Client</th>
-                        <th>Delete Client</th>
-                        <th>Edit HTMA</th>
-                        <th>Add HTMA</th>
-                        <th>Edit Symptom Sheet</th>
-                        <th>Add Symptom Sheet</th>
+                        <th>Inactivate Client</th>
+                        <th>HTMA Edit</th>
+                        <th>HTMA Enter</th>
+                        <th>Symptom Sheet Edit</th>
+                        <th>Symptom Sheet Enter</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -36,15 +35,14 @@
                         foreach($clients as $client)
                         {
                             echo '<tr>';
-                            echo '<td>' . $client->id .  '</td>';
                             echo '<td>' . $client->firstname .  '</td>';
                             echo '<td>' . $client->lastname .  '</td>';
                             echo '<td><a href="' . $GLOBALS['BASE_URL'] . 'coaches/editclient/' . $client->id .  '/"><img alt="Edit Client" src="' .  $GLOBALS['BASE_URL'] . 'images/pencil.png" height="25" width="25">Edit </a></td>';
-                            echo '<td><a href="' . $GLOBALS['BASE_URL'] . 'coaches/deleteclient/' . $client->id .  '"><img alt="Delete Client" src="' .  $GLOBALS['BASE_URL'] . 'images/cancel.png" height="25" width="25">Delete </a></td>';
-                            echo '<td><a href="' . $GLOBALS['BASE_URL'] . 'coaches/selectclienthtma/' . $client->id .  '"><img alt="Edit HTMA" src="' .  $GLOBALS['BASE_URL'] . 'images/htma.png" height="25" width="25">Edit HTMA </a></td>';
-                            echo '<td><a href="' . $GLOBALS['BASE_URL'] . 'coaches/addclienthtma/' . $client->id .  '"><img alt="Add HTMA" src="' .  $GLOBALS['BASE_URL'] . 'images/plus.png" height="25" width="25">Add HTMA </a></td>';
-                            echo '<td><a href="' . $GLOBALS['BASE_URL'] . 'coaches/selectsymptomsheet/' . $client->id .  '"><img alt="Edit Symptom Sheet" src="' .  $GLOBALS['BASE_URL'] . 'images/symptomsheet-view.png" height="25" width="25">Edit Symptom Sheet </a></td>';
-                            echo '<td><a href="' . $GLOBALS['BASE_URL'] . 'coaches/addsymptomsheet/' . $client->id .  '"><img alt="Add Symptom Sheet" src="' .  $GLOBALS['BASE_URL'] . 'images/symptomsheet-add.png" height="25" width="25">Add Symptom Sheet </a></td>';
+                            echo '<td><a href="' . $GLOBALS['BASE_URL'] . 'coaches/deleteclient/' . $client->id .  '"><img alt="Inactivate Client" src="' .  $GLOBALS['BASE_URL'] . 'images/cancel.png" height="25" width="25">Inactivate</a></td>';
+                            echo '<td><a href="' . $GLOBALS['BASE_URL'] . 'coaches/selectclienthtma/' . $client->id .  '"><img alt="HTMA Edit" src="' .  $GLOBALS['BASE_URL'] . 'images/htma.png" height="25" width="25">HTMA Edit </a></td>';
+                            echo '<td><a href="' . $GLOBALS['BASE_URL'] . 'coaches/addclienthtma/' . $client->id .  '"><img alt="HTMA Enter" src="' .  $GLOBALS['BASE_URL'] . 'images/plus.png" height="25" width="25">HTMA Enter</a></td>';
+                            echo '<td><a href="' . $GLOBALS['BASE_URL'] . 'coaches/selectsymptomsheet/' . $client->id .  '"><img alt="Symptom Sheet Edit" src="' .  $GLOBALS['BASE_URL'] . 'images/symptomsheet-view.png" height="25" width="25">Symptom Sheet Edit</a></td>';
+                            echo '<td><a href="' . $GLOBALS['BASE_URL'] . 'coaches/addsymptomsheet/' . $client->id .  '"><img alt="Symptom Sheet Enter" src="' .  $GLOBALS['BASE_URL'] . 'images/symptomsheet-add.png" height="25" width="25">Symptom Sheet Enter</a></td>';
                             echo '</tr>';
                         }
 

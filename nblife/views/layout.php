@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>NB Life Client Portal</title>
+    <title><?php echo $GLOBALS['APP_NAME'] ?></title>
 
     <?php include("inc/header.php"); ?>
 

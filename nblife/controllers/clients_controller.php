@@ -24,7 +24,8 @@ require_once('models/htmaratiocalculator.php');
       try
       {
         $user = unserialize($_SESSION['User']);
-        $client = R::findOne('client',$user->id);
+        $client = R::findOne('client','user_id = ?',[26]);
+//        $client = R::findOne('client','user_id = ?',[$user->id]);
         $cid = $client->id;
         $htmaresults = HTMA::findAllByClientId($cid);
         require_once('views/clients/selecthtma.php');

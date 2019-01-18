@@ -10,7 +10,7 @@
             $beans = R::findMulti('client,user',
             'select client.*, user.* from client, user where
              user.id = client.user_id
-            and user.isactive = 1');
+            and user.isactive = 1 order by client.firstname, client.lastname');
             $clients = $beans['client'];
             return $clients;
         }
@@ -22,8 +22,10 @@
             $beans = R::findMulti('client,user',
             'select client.*, user.* from client , user
             where user.id = client.user_id and 
-            user.isactive = 1 and client.coach_id = ?',[$coach->id]);
+            user.isactive = 1 and client.coach_id = ? order by client.firstname, client.lastname',[$coach->id]);
             $clients = $beans['client'];
+//            $emps = $project->via('employee_project')->sharedEmployeeList;
+
             return $clients;
         }
 

@@ -52,7 +52,9 @@
 			unset($_SESSION['User']);
 			unset($_SESSION['UserRoles']);
 			require_once('views/users/logout.php');		
-		}
+			$url = '/';
+			echo'<META HTTP-EQUIV=REFRESH CONTENT="1; '.$url.'">';
+}
 
 		
 		public function register()

@@ -2,19 +2,173 @@
 	include ('inc/global.php');
 	include ('inc/rb.php');
 	
-	R::setup( $GLOBALS['DB'], $GLOBALS['DBUSER'], $GLOBALS['DBPASSWORD'] );
+	R::setup( 'mysql:host=localhost;dbname=phpugdemo', $GLOBALS['DBUSER'], $GLOBALS['DBPASSWORD'] );
 //	R::freeze(true);
 
-	$user = R::Load('user',24);
-	//how to do a many-to-many relationship
-	$roles = $user->via('userrole')->sharedRoleList;
+	$user = R::dispense('user');
+	$user->email = 'alfred@gmail.com';
+	$user->password = 'password';
+	$user->created = date("Y-m-d H:i:s");
+	$user->locked = false;
+	R::store($user);
+
+	$user1 = R::dispense('user');
+	$user1->email = 'alfred@gmail.com';
+	$user1->password = 'password';
+	$user1->created = date("Y-m-d H:i:s");
+	$user1->locked = false;
+	R::store($user1);
 
 
-	foreach ($roles as $role)
+	$userrole = R::dispense('role');
+	$userrole->title = 'User';
+	R::store($userrole);
+
+	$adminrole = R::dispense('role');
+	$adminrole->title = 'Admin';
+	R::store($adminrole);
+
+	$adminrole->sharedUser[] = $user;
+	$userrole->sharedUser[] = $user1;
+
+	R::store($userrole);
+	R::store($adminrole);
+	
+	$p = R::dispense('permission');
+	$p->title = '*';
+	$p->module = 'blog';
+	$p->scope = '*';
+	$p->active = true;
+	R::store($p);
+
+
+	$p1 = R::dispense('permission');
+	$p1->title = 'create';
+	$p1->module = 'blog';
+	$p1->scope = 'own';
+	$p1->active = true;
+	R::store($p1);
+
+	$p2 = R::dispense('permission');
+	$p2->title = 'edit';
+	$p2->module = 'blog';
+	$p2->scope = 'own';
+	$p2->active = true;
+	R::store($p2);
+
+	$p3 = R::dispense('permission');
+	$p3->title = 'delete';
+	$p3->module = 'blog';
+	$p3->scope = 'own';
+	$p3->active = true;
+	R::store($p3);
+
+
+
+	$adminrole->sharedPermission[] = $p;
+	$userrole->sharedPermission[] = $p1;//create
+	$userrole->sharedPermission[] = $p2;//edit but can't delete
+
+
+	R::store($userrole);
+	R::store($adminrole);
+
+	$permissions = $adminrole->sharedPermissionList;
+	foreach($permissions as $perm)
 	{
-		echo $role->name;
+		echo $perm->title . '<br/>';
 	}
 
+
+//	$employee->sharedProject[] = $project;
+//	$employee1->sharedProject[] = $project;
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+
+	$project = R::load('project',1);
+
+	echo $project->endDate . '<br/>';
+
+//	$project1 = R::findOne('project', 'endDate = ?',['12/31/2019']);
+	$project1 = R::findOne('project', 'end_date = ?',['12/31/2019']);
+	if(isset($project1))
+	{
+		echo $project1->title . '<br/>';
+	}
+	else
+	{
+		echo "Dang.... I can't find the project.... hmmmm" . '<br/>';
+	}
+
+	$emps = R::findAll('employee');
+	foreach($emps as $emp)
+	{
+		echo $emp->email . '<br/>';
+	}
+
+
+
+	$emps = $project->via('employee_project')->sharedEmployeeList;
+	foreach($emps as $emp)
+	{
+		echo $emp->email . '<br/>';
+	}
+
+	$employee = R::dispense('employee');
+	$employee->firstname = 'Joe';
+	$employee->lastname = 'Mama';
+	R::store($employee);
+
+	$employee1 = R::dispense('employee');
+	$employee1->firstname = 'Joe';
+	$employee1->lastname = 'Daddy';
+	R::store($employee1);
+
+
+	$project = R::dispense('project');
+	$project->title = 'Do some great thing';
+	R::store($project);
+
+	$employee->sharedProject[] = $project;
+	$employee1->sharedProject[] = $project;
+
+	R::store($employee);
+	R::store($employee1);
+
+	$employees = $project->sharedEmployeeList;
+
+	foreach($employees as $emp)
+	{
+		echo $emp->lastname;
+	}
+*/	
+
+
+	
+	
 
 
 /**	
