@@ -22,12 +22,16 @@
 <body>
     <div id="app">
 
-        <main class="py-4">
-            @include('inc.navbar')
+        @include('inc.navbar')
+        
+
+        <main class="container">
             @if(Request::is('/'))
                 @include('inc.showcase')
             @endif
             <div class="row">
+                <div class="col-md-8 col-lg-8">
+                    @include('inc.messages')
                     @yield('content')
                 </div>
                 <div class="col-md-4 col-lg-4">
@@ -36,7 +40,7 @@
             </div>
 
             <footer id="footer" class="text-center">
-                &copy 2019
+                Copyright  2019 &copy Ortega Software
             </footer>
 
     
