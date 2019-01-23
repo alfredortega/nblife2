@@ -51,10 +51,12 @@
       echo 'read a message';    
     }
 
-    public static function updateClient($id,$dateofbirth, $salutation, $gender, $firstname, $middlename, $lastname, $streetaddress, $streetaddress2, $city, $state, $zipcode, $homephone, $workphone, $height, $weight)
+    public static function updateClient($id,$agerangeid, $salutation, $gender, $firstname, $middlename, $lastname, $streetaddress, $streetaddress2, $city, $state, $zipcode, $homephone, $workphone, $height, $weight)
     {
         $client = R::load('client',$id);
-        $client->dateofbirth =$dateofbirth;
+        $agerange = R::load('agerange',$agerangeid);
+        $client->agerange = $agerange;
+//        $client->dateofbirth =$dateofbirth;
         $client->salutation = $salutation;
         $client->gender = $gender;
         $client->firstname = $firstname;

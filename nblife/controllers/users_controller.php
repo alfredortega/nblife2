@@ -133,7 +133,8 @@
 		
 			  if(isset($_POST['Submit'])) //update client record
 			  {
-				$dateofbirth = $_POST['dateofbirth'];
+				$agerangeid = $_POST['agerange'];
+				//$dateofbirth = $_POST['dateofbirth'];
 				$salutation = $_POST['salutation'];
 				$gender = $_POST['gender'];
 				$firstname = $_POST['firstname'];
@@ -148,7 +149,7 @@
 				$workphone = $_POST['workphone'];
 				$height = $_POST['height'];
 				$weight = $_POST['weight'];
-				$client = Client::updateClient($id,$dateofbirth, $salutation, $gender, $firstname, $middlename, $lastname, $streetaddress, $streetaddress2, $city, $state, $zipcode, $homephone, $workphone, $height, $weight);
+				$client = Client::updateClient($id,$agerangeid, $salutation, $gender, $firstname, $middlename, $lastname, $streetaddress, $streetaddress2, $city, $state, $zipcode, $homephone, $workphone, $height, $weight);
 				$messageType = 'success';
 				$message = "Your profile has been successfully updated!";
 				require_once('views/message.php');

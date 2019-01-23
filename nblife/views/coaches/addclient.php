@@ -38,15 +38,17 @@
 
     <div class="row">
         <div class="col-md-4"> 
-            <label for="dateofbirth">Date of Birth <span style="color:maroon;">(*required)</span></label>
-            <input type="date" 
-                    id="dateofbirth" 
-                    required="required"
-                    name="dateofbirth"
-                    class="form-control"
-                    value=""
-                    >
-        
+            <label for="agerange">Age Range <span style="color:maroon;">(*required)</span></label>
+                <select id="agerange" name="agerange" required="requried" class="form-control">
+                    <option value="1">Under 18</option>
+                    <option value="2">18-24</option>
+                    <option value="3">25-34</option>
+                    <option value="4">35-44</option>
+                    <option value="5">45-54</option>
+                    <option value="6">55-64</option>
+                    <option value="7">65-74</option>
+                    <option value="8">74 and above</option>
+                </select>
         </div>
         <div class="col-md-4"> 
             <label for="salutation">Salutation</label>

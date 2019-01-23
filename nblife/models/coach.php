@@ -29,14 +29,14 @@
             return $clients;
         }
 
-        public static function addClient($email, $dateofbirth, $salutation, $gender, $firstname, $middlename, $lastname, $streetaddress, $streetaddress2, $city, $state, $zipcode, $homephone, $workphone, $height, $weight, $coachid)
+        public static function addClient($email, $agerangeid, $salutation, $gender, $firstname, $middlename, $lastname, $streetaddress, $streetaddress2, $city, $state, $zipcode, $homephone, $workphone, $height, $weight, $coachid)
         {
             $user = User::insert($email);
             $coach = R::FindOne('coach','user_id = ?',[$coachid]);
             $client = R::dispense('client');
-
-            
-            $client->dateofbirth =$dateofbirth;
+            $agerange = R::load('agerange',$agerangeid);
+            $client->agerange = $agerange;
+  //           $client->dateofbirth =$dateofbirth;
             $client->salutation = $salutation;
             $client->gender = $gender;
             $client->firstname = $firstname;
@@ -57,11 +57,13 @@
             return $client; 
         }
 
-        public static function updateClient($id,$dateofbirth, $salutation, $gender, $firstname, $middlename, $lastname, $streetaddress, $streetaddress2, $city, $state, $zipcode, $homephone, $workphone, $height, $weight, $userid)
+        public static function updateClient($id,$agerangeid, $salutation, $gender, $firstname, $middlename, $lastname, $streetaddress, $streetaddress2, $city, $state, $zipcode, $homephone, $workphone, $height, $weight, $userid)
         {
             $coach = R::FindOne('coach','user_id = ?',[$userid]);
             $client = R::load('client',$id);
-            $client->dateofbirth =$dateofbirth;
+            $agerange = R::load('agerange',$agerangeid);
+            $client->agerange = $agerange;
+ //           $client->dateofbirth =$dateofbirth;
             $client->salutation = $salutation;
             $client->gender = $gender;
             $client->firstname = $firstname;

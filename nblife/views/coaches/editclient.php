@@ -36,14 +36,17 @@
 
     <div class="row">
         <div class="col-md-4"> 
-            <label for="dateofbirth">Date of Birth <span style="color:maroon;">(*required)</span></label>
-            <input type="date" 
-                    id="dateofbirth" 
-                    required="required"
-                    name="dateofbirth"
-                    class="form-control"
-                    value="<?php echo $client->dateofbirth ?>"
-                    >
+        <label for="agerange">Age Range <span style="color:maroon;">(*required)</span></label>
+                <select id="agerange" name="agerange" required="requried" class="form-control">
+                    <option value="1" <?php if($client->agerange->id == '1') echo 'selected'; ?>>Under 18</option>
+                    <option value="2" <?php if($client->agerange->id == '2') echo 'selected'; ?>>18-24</option>
+                    <option value="3" <?php if($client->agerange->id == '3') echo 'selected'; ?>>25-34</option>
+                    <option value="4" <?php if($client->agerange->id == '4') echo 'selected'; ?>>35-44</option>
+                    <option value="5" <?php if($client->agerange->id == '5') echo 'selected'; ?>>45-54</option>
+                    <option value="6" <?php if($client->agerange->id == '6') echo 'selected'; ?>>55-64</option>
+                    <option value="7" <?php if($client->agerange->id == '7') echo 'selected'; ?>>65-74</option>
+                    <option value="8" <?php if($client->agerange->id == '8') echo 'selected'; ?>>74 and above</option>
+                </select>
         
         </div>
         <div class="col-md-4"> 

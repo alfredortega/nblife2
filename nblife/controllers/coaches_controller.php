@@ -67,7 +67,8 @@
         $coach = unserialize($_SESSION['User']);
         $coachid = $coach->id;
         $email = $_POST['emailaddress'];
-        $dateofbirth = $_POST['dateofbirth'];
+				$agerangeid = $_POST['agerange'];
+//        $dateofbirth = $_POST['dateofbirth'];
         $salutation = $_POST['salutation'];
         $gender = $_POST['gender'];
         $firstname = $_POST['firstname'];
@@ -82,7 +83,7 @@
         $workphone = $_POST['workphone'];
         $height = $_POST['height'];
         $weight = $_POST['weight'];
-        $client = Coach::addClient($email, $dateofbirth, $salutation, $gender, $firstname, $middlename, $lastname, $streetaddress, $streetaddress2, $city, $state, $zipcode, $homephone, $workphone, $height, $weight, $coachid);
+        $client = Coach::addClient($email, $agerangeid, $salutation, $gender, $firstname, $middlename, $lastname, $streetaddress, $streetaddress2, $city, $state, $zipcode, $homephone, $workphone, $height, $weight, $coachid);
 
         $messageType = 'success';
         $message = "client has been successfully added!";
@@ -111,7 +112,8 @@
         {
           $user = unserialize($_SESSION['User']); //to get the coach's id
           $userid = $user->id;
-          $dateofbirth = $_POST['dateofbirth'];
+          $agerangeid = $_POST['agerange'];
+//          $dateofbirth = $_POST['dateofbirth'];
           $salutation = $_POST['salutation'];
           $gender = $_POST['gender'];
           $firstname = $_POST['firstname'];
@@ -126,7 +128,7 @@
           $workphone = $_POST['workphone'];
           $height = $_POST['height'];
           $weight = $_POST['weight'];
-          $client = Coach::updateClient($cid, $dateofbirth, $salutation, $gender, $firstname, $middlename, $lastname, $streetaddress, $streetaddress2, $city, $state, $zipcode, $homephone, $workphone, $height, $weight, $userid);
+          $client = Coach::updateClient($cid, $agerangeid, $salutation, $gender, $firstname, $middlename, $lastname, $streetaddress, $streetaddress2, $city, $state, $zipcode, $homephone, $workphone, $height, $weight, $userid);
           $messageType = 'success';
           $message = "client has been successfully updated!";
           require_once('views/message.php');

@@ -3,7 +3,7 @@
     <form action="" method="post" >
     <div class="row">
         <div class="col-md-4">
-            <label for="firstname">First Name</label>
+            <label for="firstname">First Name <span style="color:maroon;">(*required)</span></label>
             <input type="text" 
                     id="firstname" 
                     class="form-control" 
@@ -22,7 +22,7 @@
                     placeholder="Middle Name">
         </div>
         <div class="col-md-4">
-            <label for="lastname">Last Name</label>
+            <label for="lastname">Last Name <span style="color:maroon;">(*required)</span></label>
             <input type="text" 
                     id="lastname" 
                     class="form-control" 
@@ -36,14 +36,17 @@
 
     <div class="row">
         <div class="col-md-4"> 
-            <label for="dateofbirth">Date of Birth</label>
-            <input type="date" 
-                    id="dateofbirth" 
-                    required="required"
-                    name="dateofbirth"
-                    class="form-control"
-                    value="<?php echo $client->dateofbirth ?>"
-                    >
+        <label for="agerange">Age Range <span style="color:maroon;">(*required)</span></label>
+                <select id="agerange" name="agerange" required="requried" class="form-control">
+                    <option value="1" <?php if($client->agerange->id == '1') echo 'selected'; ?>>Under 18</option>
+                    <option value="2" <?php if($client->agerange->id == '2') echo 'selected'; ?>>18-24</option>
+                    <option value="3" <?php if($client->agerange->id == '3') echo 'selected'; ?>>25-34</option>
+                    <option value="4" <?php if($client->agerange->id == '4') echo 'selected'; ?>>35-44</option>
+                    <option value="5" <?php if($client->agerange->id == '5') echo 'selected'; ?>>45-54</option>
+                    <option value="6" <?php if($client->agerange->id == '6') echo 'selected'; ?>>55-64</option>
+                    <option value="7" <?php if($client->agerange->id == '7') echo 'selected'; ?>>65-74</option>
+                    <option value="8" <?php if($client->agerange->id == '8') echo 'selected'; ?>>74 and above</option>
+                </select>
         
         </div>
         <div class="col-md-4"> 
@@ -60,7 +63,7 @@
             </select>
         </div>
         <div class="col-md-4"> 
-            <label for="gender">Gender</label>
+            <label for="gender">Gender <span style="color:maroon;">(*required)</span></label>
             <select id="gender" 
                     name="gender"
                     class="form-control"
@@ -73,7 +76,7 @@
     <br/>
     <div class="row">
         <div class="col-md-8">
-            <label for="streetaddress">Street Address</label>
+            <label for="streetaddress">Street Address <span style="color:maroon;">(*required)</span></label>
             <input type="text" 
                     id="streetaddress" 
                     class="form-control" 
@@ -96,7 +99,7 @@
     <br/>
     <div class="row">
         <div class="col-md-7">
-            <label for="city">City</label>
+            <label for="city">City <span style="color:maroon;">(*required)</span></label>
             <input type="text" 
                     id="city" 
                     class="form-control"  
@@ -117,7 +120,7 @@
                     placeholder="State">
         </div>
         <div class="col-md-3">
-            <label for="zipcode">Zip</label>
+            <label for="zipcode">Zip <span style="color:maroon;">(*required)</span></label>
             <input type="text" 
                     id="zipcode" 
                     class="form-control"  
@@ -131,27 +134,34 @@
     <br/>
     <div class="row">
         <div class="col-md-4">
-            <label for="homephone">Home/Cell Phone</label>
+            <label for="homephone">Home/Cell Phone ex.816-555-1234 <span style="color:maroon;">(*required)</span></label>
             <input type="tel" 
                     id="homephone" 
                     class="form-control" 
                     required="required" 
                     name="homephone"
+                    title="Must be in this format: 816-555-1234"
                     value="<?php echo $client->homephone ?>" 
-                    placeholder="Home or Cell Phone">
+                    placeholder="816-555-1234"
+                    required
+                    pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                    >
         </div>
         <div class="col-md-4">
-            <label for="workphone">Work Phone</label>
+            <label for="workphone">Work Phone ex.816-555-1234</label>
             <input type="tel" 
                     id="workphone" 
                     class="form-control" 
                     name="workphone"
                     value="<?php echo $client->workphone ?>" 
-                    placeholder="Work Phone">
+                    placeholder="816-555-1234"
+                    pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                    title="Must be in this format: 816-555-1234"
+                    >
 
         </div>
         <div class="col-md-2">
-            <label for="height">Height</label>
+            <label for="height">Height <span style="color:maroon;">(*required)</span></label>
             <input type="text" 
                     id="height" 
                     required="required" 
@@ -162,7 +172,7 @@
 
         </div>
         <div class="col-md-2">
-            <label for="weight">Weight</label>
+            <label for="weight">Weight <span style="color:maroon;">(*required)</span></label>
             <input type="number" 
                     id="weight" 
                     required="required" 
@@ -173,6 +183,7 @@
         </div>
     </div>
     <br/>
+
     <div class="row">
         <div class="col-lg-2">
             <input name="Submit" id="Submit" value="Submit" class="btn btn-lg btn-success btn-block" type="submit">
