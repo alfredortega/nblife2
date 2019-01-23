@@ -36,7 +36,7 @@
 
     <div class="row">
         <div class="col-md-4"> 
-            <label for="dateofbirth">Date of Birth< <span style="color:maroon;">(*required)</span>/label>
+            <label for="dateofbirth">Date of Birth <span style="color:maroon;">(*required)</span></label>
             <input type="date" 
                     id="dateofbirth" 
                     required="required"
