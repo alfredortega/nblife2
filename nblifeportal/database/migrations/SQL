@@ -1,0 +1,9 @@
+SELECT CASE
+    when DATA_TYPE = 'varchar' then concat("$table->string('",COLUMN_NAME, "'," , CHARACTER_MAXIMUM_LENGTH, ");" )
+    when DATA_TYPE = 'int' then concat("$table->integer('",COLUMN_NAME,"',",NUMERIC_PRECISION, ");")                                       
+    when DATA_TYPE = 'decimal' then concat("$table->decimal('",COLUMN_NAME,"',",NUMERIC_PRECISION, "," , NUMERIC_SCALE,  ");")                                       
+    when DATA_TYPE = 'date' then concat("$table->date('", COLUMN_NAME, "');")       
+    else DATA_TYPE
+end X
+  FROM INFORMATION_SCHEMA.COLUMNS
+  WHERE TABLE_SCHEMA = 'nblife' AND TABLE_NAME = 'symptomsheet'
