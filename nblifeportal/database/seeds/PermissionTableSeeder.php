@@ -19,9 +19,6 @@ class PermissionTableSeeder extends Seeder
         $updateProfile->slug = 'update-profile';
         $updateProfile->name = 'Update Profile';
         $updateProfile->save();
-//        $updateProfile->roles()->attach($client_role);
-//        $updateProfile->roles()->attach($coach_role);
-//        $updateProfile->roles()->attach($admin_role);
 
         $createClient = new App\Permission();
         $createClient->slug = 'create-client';
