@@ -6,4 +6,8 @@ SELECT CASE
     else DATA_TYPE
 end X
   FROM INFORMATION_SCHEMA.COLUMNS
-  WHERE TABLE_SCHEMA = 'nblife' AND TABLE_NAME = 'symptomsheet'
+  WHERE TABLE_SCHEMA = 'nblife' AND TABLE_NAME = 'symptomsheet';
+
+
+
+  Alter Table Client Add Constraint FK_ClientUser Foreign Key (user_id) references Users(id);
