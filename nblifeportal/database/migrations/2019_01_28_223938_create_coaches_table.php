@@ -17,7 +17,7 @@ class CreateCoachesTable extends Migration
             $table->increments('id');
             $table->string('firstname',50);
             $table->string('lastname',50);
-            $table->string('middlename',50);
+            $table->string('middlename',50)->default('');
             $table->string('email',150);
             $table->string('phone',15);
             $table->integer('user_id')->references('id')->on('users');

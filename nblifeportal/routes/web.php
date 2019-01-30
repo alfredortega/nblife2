@@ -28,3 +28,10 @@ Route::group(['middleware' => 'role:admin'], function() {
        return 'Welcome Admin';
     });
  });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
