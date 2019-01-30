@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Gate;
+use Blade;
 class PermissionsServiceProvider extends ServiceProvider
 {
     /**
@@ -18,6 +19,22 @@ class PermissionsServiceProvider extends ServiceProvider
                return $user->hasPermissionTo($permission);
             });
         });
+
+        Blade::directive('role', function($role){
+            return "<php if(auth()->check() && auth()->user()->hasRole({$role}) :";
+        });
+        Blade::directive('endrole',function($role){
+            return "<?php end if; ?>";
+        });
+
+        Blade::directive('permission', function($permission){
+            return "<php if(auth()->check() && auth()->user()->hasPermissionTo({$permission}) :";
+        });
+        Blade::directive('endpermission',function($permission){
+            return "<?php end if; ?>";
+        });
+
+
     }
 
     /**

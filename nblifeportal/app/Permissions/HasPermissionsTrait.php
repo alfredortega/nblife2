@@ -27,7 +27,7 @@ trait HasPermissionsTrait {
         return false;
     }   
 
-    protected function hasPermissionTo($permission) {
+    public function hasPermissionTo($permission) {
         return $this->hasPermission($permission) || $this->hasPermissionThroughRole($permission);
      }
      

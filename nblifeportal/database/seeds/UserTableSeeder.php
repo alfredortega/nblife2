@@ -12,26 +12,26 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
-        $dev_role = App\Role::where('slug','developer')->first();
-        $manager_role = App\Role::where('slug', 'manager')->first();
-        $dev_perm = App\Permission::where('slug','create-tasks')->first();
-        $manager_perm = App\Permission::where('slug','edit-users')->first();
-        
+        $admin_role = App\Role::where('slug','admin')->first();
+        $coach_role = App\Role::where('slug', 'coach')->first();
+        $client_role = App\Role::where('slug', 'client')->first();
+        $deleteclientPermission = App\Permission::where('slug','delete-client')->first();
+
         $developer = new App\User();
         $developer->name = 'Alfred Ortega';
         $developer->email = 'alfredortegaiii@gmail.com';
         $developer->password = bcrypt('rmn109NIV');
         $developer->save();
-        $developer->roles()->attach($dev_role);
-        $developer->permissions()->attach($dev_perm);
+        $developer->roles()->attach($admin_role);
         
         
-        $manager = new App\User();
-        $manager->name = 'Leslie Brown';
-        $manager->email = 'leslie.b@thetopdog.com';
-        $manager->password = bcrypt('secret');
-        $manager->save();
-        $manager->roles()->attach($manager_role);
-        $manager->permissions()->attach($manager_perm);    
+        $leslie = new App\User();
+        $leslie->name = 'Leslie Brown';
+        $leslie->email = 'leslie.b@thetopdog.com';
+        $leslie->password = bcrypt('secret');
+        $leslie->save();
+        $leslie->roles()->attach($client_role);
+        $leslie->roles()->attach($coach_role);    
+        $leslie->permissions()->attach($deleteclientPermission);
     }
 }

@@ -22,3 +22,9 @@ Route::get('/lifestyle', 'PagesController@lifestyle');
 Route::get('/resources', 'PagesController@resouces');
 Route::get('/secretsauce', 'PagesController@secretsauce');
 
+/** https://thewebtier.com/laravel/understanding-roles-permissions-laravel/ */
+Route::group(['middleware' => 'role:admin'], function() {
+    Route::get('/admin', function() {
+       return 'Welcome Admin';
+    });
+ });
