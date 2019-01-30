@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
+
 class UserTableSeeder extends Seeder
 {
     /**
@@ -20,9 +21,9 @@ class UserTableSeeder extends Seeder
         $developer->name = 'Alfred Ortega';
         $developer->email = 'alfredortegaiii@gmail.com';
         $developer->password = bcrypt('rmn109NIV');
+        $developer->save();
         $developer->roles()->attach($dev_role);
         $developer->permissions()->attach($dev_perm);
-        $developer->save();
         
         
         $manager = new App\User();

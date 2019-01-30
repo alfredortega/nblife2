@@ -5,11 +5,13 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Permissions\HasPermissionsTrait;
+
 
 class User extends Authenticatable
 {
     use Notifiable;
-
+    use HasPermissionsTrait;
     /**
      * The attributes that are mass assignable.
      *
@@ -37,16 +39,6 @@ class User extends Authenticatable
     public function client()
     {
         return $this->hasOne('App\Client');
-    }
-
-    public function roles()
-    {
-        return $this->belongsToMany('App\Role');
-    }
-
-    public function permissions()
-    {
-        return $this->belongsToMany('App\Permission');
     }
 
 }

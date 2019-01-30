@@ -20,15 +20,15 @@ trait HasPermissionsTrait {
 
    public function hasRole( ... $roles ) {
         foreach ($roles as $role) {
-        if ($this->roles->contains('slug', $role)) {
-            return true;
-        }
+            if ($this->roles->contains('slug', $role)) {
+                  return true;
+            }
         }
         return false;
     }   
 
     protected function hasPermissionTo($permission) {
-        return $this->hasPermission($permission);
+        return $this->hasPermission($permission) || $this->hasPermissionThroughRole($permission);
      }
      
      protected function hasPermission($permission) {
