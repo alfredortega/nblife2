@@ -16,7 +16,7 @@
         <div class="text-center">
 
             <p>
-            Welcome to the NBLife Portal. Here is where you can.....
+            Welcome to the NBLife Portal. Here is where you can do stuff
             </p>
             <a href="/users/login">
                 <span  class="btn btn-outline btn-default">Login</span>
